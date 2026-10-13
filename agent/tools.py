@@ -18,7 +18,7 @@ def save(data: dict) -> None:
 async def create_account(args: dict[str, Any]) -> dict[str, Any]:
     accounts = load()
     if args['owner'] in accounts:
-        return {"content": [{"type": "test", "text": "Account already exists."}], "is_error": True}
+        return {"content": [{"type": "text", "text": "Account already exists."}], "is_error": True}
     accounts[args['owner']] = {"balance": 0.0}
     save(accounts)
     return {"content": [{"type": "text", "text": f"Account created for {args['owner']}."}]}
