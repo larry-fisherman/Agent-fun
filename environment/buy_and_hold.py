@@ -5,7 +5,7 @@ from evaluation.metrics import total_return, max_drawdown
 
 prices= pd.read_csv("data/prices.csv", index_col=0, parse_dates=True)
 STARTING_CASH = 100_000
-m = Market(prices, STARTING_CASH)
+m = Market(prices, STARTING_CASH, start_index=30)
 
 per_ticker = STARTING_CASH / len(prices.columns)
 for t in prices.columns:
