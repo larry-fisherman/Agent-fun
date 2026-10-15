@@ -1,3 +1,1 @@
-"Apple is one of the most stable, profitable, and innovation-driven companies." It didn't learn that from your data, which had one price. It's using its training knowledge, and it knows how Apple did after 2020.
-
-This is the memorisation issue. Later run an experiment: replace "AAPL" with "Stock A" and see whether the agent trades differently.
+## First run - The agent said, "Apple is one of the most stable, profitable, and innovation-driven companies." It didn't learn that from your data, which had one price. It's using its training knowledge, and it knows how Apple did after 2020. This is the memorisation issue. Later run an experiment: replace "AAPL" with "Stock A" and see whether the agent trades differently.
