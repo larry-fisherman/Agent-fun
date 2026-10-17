@@ -18,7 +18,9 @@ class Market:
 
     def today(self) -> str:
         date = self.prices.index[self.i]
-        return date.strftime("%Y-%m-%d")
+        if hasattr(date, 'strftime'):
+            return date.strftime("%Y-%m-%d")
+        return str(date)
     
     def get_history(self, ticker: str, lookback_days: int) -> pd.DataFrame:
         self._check_ticker(ticker)
