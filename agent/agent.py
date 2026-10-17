@@ -37,7 +37,7 @@ async def main(anonymize_data: bool = True):
     values = [market.portfolio()['total_value']]
     done = False
     week = 0
-    max_weeks = 4
+    max_weeks = 150
 
     while not done and week < max_weeks:
         prompt = f"Today is {market.today()}. Review your portfolio and recent price history, then make any trades you think are worthwhile."
