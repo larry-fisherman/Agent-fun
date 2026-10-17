@@ -31,3 +31,47 @@ Anon data average:  +24.1%.   -35.7%
 ## Eigth run (anon data) - Full 150 week run on baseline agent. The agent did worse than the baseline, with the final portfolio: cash: 9,005.39, positions: {'STOCK_A': 201, 'STOCK_C': 567}, total_value: 131,588.06, Return: 31.6%, Max drawdown: -36.2%
 
 # Hiding the names and dates cut the average return by about 20 points, and the anonymised agent lost to buy-and-hold in all three runs. So the agent's apparent edge came mostly from remembering history, not from reading the prices
+
+## First reviewer run:
+    Claim: underperformance "almost certainly explained by transaction costs"	
+    Check: Your Market has no transaction costs	
+    Result: False. It invented a cause.
+
+    Claim: "traded in ~140 of 146 weeks"	
+    Check: 12 weeks have (no trades), so 134	
+    Result: Roughly right
+
+    Claim: best growth (weeks 58–72) had "less frequent repositioning"	
+    Check: It traded in 12 of those 15 weeks	
+    Result: Mostly false
+
+    Claim: 1-share trades in weeks 34, 50, 55, 137	
+    Check: Weeks 34, 50 and 55 are 1–2 share trades. Week 137 is 2–3.	
+    Result: True. Real noise trades.
+
+    Claim: week 20 sold A and B to buy C, then reversed in week 21	
+    Check: W20: sold 404 A, bought 431 C. W21: sold 150 C, bought 157 A	
+    Result: True (a partial reversal)
+
+    Claim: "lock in losses"	
+    Check: Value went up, $105,613 → $110,575	
+    Result: False
+
+    Claim: week 32 buys 425 B, week 33 sells 200	
+    Check: Matches the table	
+    Result: True
+
+    Claim: "Week 37 sells STOCK_C, week 38 buys it back"	
+    Check: Week 38 is SELL STOCK_A 25, BUY STOCK_B 31	
+    Result: False. Made-up evidence.
+
+## Updated prompt and changed model: 
+    Reviewer: Haiku, short prompt	
+    Quoted Rows Correct: ~50%	
+    Invented Causes: Yes (transaction costs)	
+    Found the problem period: No
+
+    Reviewer: Sonnet, structured prompt	
+    Quoted Rows Correct:11/11	
+    Invented Causes: No, but one false supporting claim	
+    Found the problem period:Yes (weeks 69–134)

@@ -3,19 +3,21 @@ from environment.market import Market
 from evaluation.metrics import total_return, max_drawdown
 
 
-prices= pd.read_csv("data/prices.csv", index_col=0, parse_dates=True)
-STARTING_CASH = 100_000
-m = Market(prices, STARTING_CASH, start_index=30)
+def buy_and_hold_values(prices: pd.DataFrame, start_index: int, starting_cash: float = 100_000) -> dict:
+    m = Market(prices, starting_cash, start_index=start_index)
+    per_ticker = starting_cash / len(prices.columns)
+    for t in prices.columns:
+        shares = int(per_ticker // m.price(t))
+        m.buy(t, shares)
 
-per_ticker = STARTING_CASH / len(prices.columns)
-for t in prices.columns:
-    shares = int(per_ticker // m.price(t))
-    print(m.buy(t, shares))
+    values = {m.today(): m.portfolio()["total_value"]}
+    while m.advance():
+        values[m.today()] = m.portfolio()["total_value"]
+    return values
 
-values = [m.portfolio()["total_value"]]
-while m.advance():
-    values.append(m.portfolio()["total_value"])
-
-print(m.portfolio())
-print(f"Return: {total_return(values):.1f}%")
-print(f"Max drawdown: {max_drawdown(values):.1f}%")
+if __name__ == "__main__":
+    prices = pd.read_csv("data/prices.csv", index_col=0, parse_dates=True)
+    values = buy_and_hold_values(prices, start_index=30)
+    v = list(values.values())
+    print(f"Return: {total_return(v):.1f}%")
+    print(f"Max drawdown: {max_drawdown(v):.1f}%")
