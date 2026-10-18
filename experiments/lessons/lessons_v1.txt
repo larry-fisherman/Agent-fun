@@ -1,0 +1,2 @@
+1. Don't rotate between stocks or trim positions every week based on short-term moves. Keep holdings near equal-weight and change them only with a clear reason, because constant switching repeatedly lost ground to simply holding.
+2. Don't sell into a sharp one-week drop and sit in cash. Drops were often followed by rebounds that the agent missed while in cash. If you sell, redeploy the proceeds promptly rather than leaving them idle.

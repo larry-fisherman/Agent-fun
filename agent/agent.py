@@ -8,15 +8,25 @@ from environment.market import Market
 import pandas as pd
 from evaluation.metrics import total_return, max_drawdown
 from environment.anonymize import anonymize
+from agent.memory import load_lessons
 
 
-async def main(anonymize_data: bool = True):
+
+BASE_PROMPT = "You're an autonomous trader managing this portfolio. You make the decisions to buy and sell without human intervention. You can only use the tools that have been assigned and all trades fill at today's close. The goal is to maximize profits. With each trade, provide a short summary of what you did and why."
+
+async def main(anonymize_data: bool = True, max_weeks: int=150, lessons_path: str | None = None):
     run_name = datetime.now().strftime("%Y%m%d_%H%M%S")
     mode = "anon" if anonymize_data else "real"
-    log_path = Path("experiments/results") / f"{run_name}_{mode}.jsonl"
+    tag = Path(lessons_path).stem if lessons_path else "nolessons"
+    log_path = Path("experiments/results") / f"{run_name}_{mode}_{tag}.jsonl"
     prices = pd.read_csv("data/prices.csv", index_col=0, parse_dates=True)
     if anonymize_data:
         prices = anonymize(prices)
+
+    system_prompt = BASE_PROMPT
+    if lessons_path:
+        lessons = load_lessons(lessons_path)
+        system_prompt += "\n\nLessons from your past performance (apply them):\n" + lessons
 
     market = Market(prices, 100_000, start_index=30)
 
@@ -31,13 +41,12 @@ async def main(anonymize_data: bool = True):
         ],
         model="claude-haiku-4-5-20251001", 
         max_turns=8,
-        system_prompt="You're an autonomous trader managing this portfolio. You make the decisions to buy and sell without human intervention. You can only use the tools that have been assigned and all trades fill at today's close. The goal is to maximize profits. With each trade, provide a short summary of what you did and why."
+        system_prompt = system_prompt
     )
 
     values = [market.portfolio()['total_value']]
     done = False
     week = 0
-    max_weeks = 150
 
     while not done and week < max_weeks:
         prompt = f"Today is {market.today()}. Review your portfolio and recent price history, then make any trades you think are worthwhile."

@@ -3,6 +3,7 @@ from claude_agent_sdk import query, ClaudeAgentOptions, AssistantMessage, Result
 from environment.buy_and_hold import buy_and_hold_values
 from environment.anonymize import anonymize
 import pandas as pd
+from agent.memory import extract_lessons, save_lessons
 
 
 REVIEWER_PROMPT = """You review the performance of an autonomous trading agent and write lessons to improve it.
@@ -91,8 +92,17 @@ if __name__ == "__main__":
     prices = anonymize(pd.read_csv("data/prices.csv", index_col=0, parse_dates=True))
     bah = buy_and_hold_values(prices, start_index=30)
     summary = summarize_log("experiments/results/20261017_000526_anon.jsonl", bah)
+    review_text = asyncio.run(review(summary))
+    print(review_text)
+    lessons = extract_lessons(review_text)
+    save_lessons(lessons, "experiments/lessons/lessons_v1.txt")
+    save_lessons(review_text, "experiments/lessons/lessons_v1_review.txt")
     print(summary)
     print("\n===== LESSONS =====\n")
-    print(asyncio.run(review(summary)))
+    
+
+
+
+
 
 
