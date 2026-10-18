@@ -4,6 +4,7 @@ from environment.buy_and_hold import buy_and_hold_values
 from environment.anonymize import anonymize
 import pandas as pd
 from agent.memory import extract_lessons, save_lessons
+from pathlib import Path
 
 
 REVIEWER_PROMPT = """You review the performance of an autonomous trading agent and write lessons to improve it.
@@ -67,7 +68,7 @@ def summarize_log(path, bah) -> str:
     lines.append(f'Final: agent {agent_return:+.1f}%, buy-and-hold {bah_return:+.1f}%')
     return '\n'.join(lines)
 
-async def review (summary: str) -> str:
+async def review (summary: str, previous_lessons: str) -> str:
     options = ClaudeAgentOptions(
         tools = [],
         model = "claude-sonnet-5-5", 
@@ -76,6 +77,16 @@ async def review (summary: str) -> str:
     )
 
     prompt = f"Here is the trading agent's week-by-week record:\n\n{summary}\n\nWrite your lessons."
+
+    if previous_lessons:
+        prompt += (
+            "During this run, the agent was following these lessons:\n"
+            f"{previous_lessons}\n\n"
+            "Judge each lesson against the record: keep it if the agent followed it and it helped, "
+            "revise it if it was unclear or only partly helped, and drop it if it hurt.\n\n"
+        )
+    
+    prompt += "Write your lessons."
 
     texts = []
     async for message in query(prompt=prompt, options=options):
@@ -87,22 +98,16 @@ async def review (summary: str) -> str:
             print(f"Done: {message.subtype}") 
     return '\n'.join(texts)
     
-if __name__ == "__main__":
-    import asyncio
-    prices = anonymize(pd.read_csv("data/prices.csv", index_col=0, parse_dates=True))
+async def reflect(log_path: str, data_path: str, out_path: str, previous_lessons: str | None = None) -> str:
+    prices = anonymize(pd.read_csv(data_path, index_col=0, parse_dates=True))
     bah = buy_and_hold_values(prices, start_index=30)
-    summary = summarize_log("experiments/results/20261017_000526_anon.jsonl", bah)
-    review_text = asyncio.run(review(summary))
-    print(review_text)
+    summary = summarize_log(log_path, bah)
+    review_text = await review(summary, previous_lessons)
+    out_path = Path(out_path)
+    review_path = out_path.with_name(out_path.stem + "_review.txt")
+    save_lessons(review_text, review_path)
     lessons = extract_lessons(review_text)
-    save_lessons(lessons, "experiments/lessons/lessons_v1.txt")
-    save_lessons(review_text, "experiments/lessons/lessons_v1_review.txt")
-    print(summary)
-    print("\n===== LESSONS =====\n")
-    
-
-
-
-
+    save_lessons(lessons, out_path)
+    return lessons
 
 

@@ -14,12 +14,13 @@ from agent.memory import load_lessons
 
 BASE_PROMPT = "You're an autonomous trader managing this portfolio. You make the decisions to buy and sell without human intervention. You can only use the tools that have been assigned and all trades fill at today's close. The goal is to maximize profits. With each trade, provide a short summary of what you did and why."
 
-async def main(anonymize_data: bool = True, max_weeks: int=150, lessons_path: str | None = None):
+async def main(anonymize_data: bool = True, max_weeks: int=150, data_path: str | None = "data/prices.csv", lessons_path: str | None = None):
     run_name = datetime.now().strftime("%Y%m%d_%H%M%S")
     mode = "anon" if anonymize_data else "real"
     tag = Path(lessons_path).stem if lessons_path else "nolessons"
-    log_path = Path("experiments/results") / f"{run_name}_{mode}_{tag}.jsonl"
-    prices = pd.read_csv("data/prices.csv", index_col=0, parse_dates=True)
+    data_type = "train" if "train" in data_path else 'test'
+    log_path = Path("experiments/results") / f"{run_name}_{mode}_{tag}_{data_type}.jsonl"
+    prices = pd.read_csv(data_path, index_col=0, parse_dates=True)
     if anonymize_data:
         prices = anonymize(prices)
 
@@ -67,9 +68,13 @@ async def main(anonymize_data: bool = True, max_weeks: int=150, lessons_path: st
 
         week += 1
 
+    ret = total_return(values)
+    dd = max_drawdown(values)
     print("Final portfolio:", market.portfolio())
-    print(f"Return: {total_return(values):.1f}%")
-    print(f"Max drawdown: {max_drawdown(values):.1f}%")
+    print(f"Return: {ret:.1f}%")
+    print(f"Max drawdown: {dd:.1f}%")
+    return {"log_path": str(log_path), "return": ret, "max_drawdown": dd}
+
 
 async def run_step(prompt: str, options: ClaudeAgentOptions) -> dict:
     texts = []

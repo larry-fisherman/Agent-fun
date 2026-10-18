@@ -75,3 +75,5 @@ Anon data average:  +24.1%.   -35.7%
     Quoted Rows Correct:11/11	
     Invented Causes: No, but one false supporting claim	
     Found the problem period:Yes (weeks 69–134)
+
+## Initial lessons learned - "Keep holdings near equal-weight" and "don't switch", "don't sit in cash". This almost sounds like it is trending towards a buy and hold strategy... not what we are looking for. 
