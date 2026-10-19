@@ -31,4 +31,4 @@ async def run_experiment(rounds: int = 3, test_runs: int = 3, max_weeks: int = 1
         print(f"With lessons, run {i}:  {r['return']:+.1f}%  dd {r['max_drawdown']:.1f}%   {r['log_path']}")
 
 if __name__ == "__main__":
-    asyncio.run(run_experiment(max_weeks=4))   # dry run first
+    asyncio.run(run_experiment())  

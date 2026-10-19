@@ -68,7 +68,7 @@ def summarize_log(path, bah) -> str:
     lines.append(f'Final: agent {agent_return:+.1f}%, buy-and-hold {bah_return:+.1f}%')
     return '\n'.join(lines)
 
-async def review (summary: str, previous_lessons: str) -> str:
+async def review (summary: str, previous_lessons: str | None = None) -> str:
     options = ClaudeAgentOptions(
         tools = [],
         model = "claude-sonnet-5-5", 
@@ -76,7 +76,7 @@ async def review (summary: str, previous_lessons: str) -> str:
         system_prompt = REVIEWER_PROMPT,
     )
 
-    prompt = f"Here is the trading agent's week-by-week record:\n\n{summary}\n\nWrite your lessons."
+    prompt = f"Here is the trading agent's week-by-week record:\n\n{summary}\n\n"
 
     if previous_lessons:
         prompt += (
