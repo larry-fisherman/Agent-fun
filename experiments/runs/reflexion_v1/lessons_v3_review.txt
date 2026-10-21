@@ -1,0 +1,49 @@
+Analysis summary: The agent trailed buy-and-hold by 11 points (+50.1% vs +61.0%). Most of the gap opened during active switching periods. The gap went from about -1% to -5% in weeks 16–20. It widened again in weeks 38–41, 50–56 and 61–66. During the long no-trade stretches, the gap mostly held steady or narrowed (weeks 80–95, from -14% to -7%).
+
+**Judging the existing lessons**
+
+- Lesson 1 (trade rarely, swap in similar dollar amounts): The agent only partly followed it. It kept switching its whole position between stocks, and those switches mostly lost ground. Keep the "trade rarely" part, but revise it to ban round-trip switches.
+- Lesson 2 (no small partial sells): The agent mostly obeyed it in spirit, because most trades were paired sell/buy swaps. The repeated small swaps in weeks 25–31 and 63–66 still lagged. Keep it, merged into a rule against repeated incremental shifts.
+- Lesson 3 (keep holding concentrated winners): Holding paid off in weeks 7–11, when the gap went from +0.1% to +4.7%. The agent then sold the winner in week 12 and the lead vanished. It also kept rotating out of positions. Keep it, and make it stronger.
+
+LESSON: After a switch, hold the new position for many weeks. Don't reverse it within a few weeks, and don't swap back and forth between the same two stocks.
+EVIDENCE:
+Week 51 | Day 280 | SELL STOCK_C 794, BUY STOCK_B 954 | agent value $100,392 | buy & hold $109,174 | gap -8.0%
+Week 52 | Day 285 | SELL STOCK_B 954, BUY STOCK_C 754 | agent value $98,221 | buy & hold $109,734 | gap -10.5%
+Week 54 | Day 295 | SELL STOCK_C 754, BUY STOCK_B 923 | agent value $99,100 | buy & hold $111,837 | gap -11.4%
+Week 71 | Day 380 | SELL STOCK_C 653, BUY STOCK_A 889 | agent value $106,425 | buy & hold $126,888 | gap -16.1%
+Week 72 | Day 385 | SELL STOCK_A 889, BUY STOCK_C 660 | agent value $108,147 | buy & hold $128,686 | gap -16.0%
+WHY: Full-position swaps were reversed one to two weeks later. Each round trip lost ground and gained nothing. Weeks 51 to 54 took the gap from -8.0% to -11.4%.
+
+LESSON: Don't sell a stock that is outperforming in order to move into a different one. When the agent is ahead of buy-and-hold on its current holdings, leave them alone.
+EVIDENCE:
+Week 11 | Day 80 | (no trades) | agent value $104,212 | buy & hold $99,555 | gap +4.7%
+Week 12 | Day 85 | SELL STOCK_C 930, BUY STOCK_A 965 | agent value $103,495 | buy & hold $104,195 | gap -0.7%
+Week 56 | Day 305 | SELL STOCK_B 923, BUY STOCK_A 922, BUY STOCK_A 921 | agent value $106,434 | buy & hold $122,711 | gap -13.3%
+WHY: The agent held a position that was beating buy-and-hold and led by +4.7%. It switched, and the lead was gone the next week (-0.7%). Later switches kept missing rallies in the stocks the agent had just sold.
+
+LESSON: Don't run a sequence of small weekly sells from one stock into another over consecutive weeks. A gradual rotation has repeatedly lost ground. Either make one decision and hold, or make no change.
+EVIDENCE:
+Week 63 | Day 340 | SELL STOCK_A 300, BUY STOCK_C 232 | agent value $103,397 | buy & hold $123,740 | gap -16.4%
+Week 64 | Day 345 | SELL STOCK_A 200, BUY STOCK_C 147 | agent value $100,959 | buy & hold $122,646 | gap -17.7%
+Week 65 | Day 350 | SELL STOCK_A 100, BUY STOCK_C 70 | agent value $97,855 | buy & hold $118,992 | gap -17.8%
+Week 25 | Day 150 | SELL STOCK_C 200, BUY STOCK_A 210 | agent value $114,138 | buy & hold $120,546 | gap -5.3%
+Week 26 | Day 155 | SELL STOCK_B 150, BUY STOCK_A 143 | agent value $116,848 | buy & hold $121,541 | gap -5.5%
+WHY: Switching in repeated small steps after a drop meant the agent sold into weakness. It kept paying that cost over several weeks. The gap widened from -13.5% to -17.8% across this run, and it was -5% or worse throughout the earlier one.
+
+LESSON: Don't sell to rotate after a sharp drop in the portfolio. After declines, the agent's rotations sold the weak stock near its low, and the gap widened.
+EVIDENCE:
+Week 39 | Day 220 | SELL STOCK_A 91, BUY STOCK_C 81 | agent value $101,936 | buy & hold $109,385 | gap -6.8%
+Week 40 | Day 225 | SELL STOCK_A 144, BUY STOCK_B 154 | agent value $98,431 | buy & hold $106,335 | gap -7.4%
+Week 44 | Day 245 | SELL STOCK_B 154, BUY STOCK_C 123 | agent value $92,329 | buy & hold $97,668 | gap -5.5%
+WHY: Switches made during a drawdown did not recover the lost ground. The agent was still behind afterwards (-7.4% and -6.4% in the following weeks).
+
+Note: I made an error in the week 26 evidence row. The record shows agent value $114,848 for that row, not $116,848. Use this corrected row: `Week 26 | Day 155 | SELL STOCK_B 150, BUY STOCK_A 143 | agent value $114,848 | buy & hold $121,541 | gap -5.5%`.
+
+<lessons>
+1. Trade rarely. After a switch, hold the new position for many weeks. Never reverse a switch within a few weeks, and never swap back and forth between the same two stocks.
+2. Don't sell a stock that is outperforming in order to buy a different one. If the current holdings are ahead of buy-and-hold, leave them alone.
+3. Don't spread one rotation across several consecutive weeks of small sells. Make a single decision and hold it, or make no change.
+4. Don't rotate positions after a sharp portfolio drop. Switches made during drawdowns have sold weak stocks near their lows and widened the gap.
+5. Keep total stock exposure unchanged when you do shift. Avoid leaving cash or trimming exposure.
+</lessons>

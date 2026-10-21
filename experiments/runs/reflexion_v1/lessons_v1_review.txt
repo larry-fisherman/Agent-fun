@@ -1,0 +1,31 @@
+LESSON 1: Don't rotate positions every week. Hold the current allocation unless there is a clear reason to change it. Weeks with no trades usually narrowed the gap, and weeks that sold one holding to buy another often widened it.
+
+EVIDENCE:
+Week 22 | Day 135 | SELL STOCK_A 50, BUY STOCK_C 45 | agent value $104,401 | buy & hold $115,014 | gap -9.2%
+Week 23 | Day 140 | (no trades) | agent value $107,056 | buy & hold $117,352 | gap -8.8%
+Week 29 | Day 170 | SELL STOCK_B 96, BUY STOCK_A 80 | agent value $110,334 | buy & hold $122,897 | gap -10.2%
+Week 30 | Day 175 | (no trades) | agent value $110,639 | buy & hold $122,074 | gap -9.4%
+Week 40 | Day 225 | SELL STOCK_A 95, BUY STOCK_C 172, BUY STOCK_C 171 | agent value $98,039 | buy & hold $106,335 | gap -7.8%
+Week 41 | Day 230 | (no trades) | agent value $104,310 | buy & hold $111,110 | gap -6.1%
+Week 10 | Day 75 | SELL STOCK_A 250, BUY STOCK_C 217 | agent value $96,192 | buy & hold $101,353 | gap -5.1%
+Week 11 | Day 80 | SELL STOCK_A 150, SELL STOCK_B 100, BUY STOCK_C 213 | agent value $94,994 | buy & hold $99,555 | gap -4.6%
+Week 12 | Day 85 | SELL STOCK_B 160, BUY STOCK_A 150, BUY STOCK_A 145 | agent value $95,991 | buy & hold $104,195 | gap -7.9%
+
+WHY: After each of the three no-trade weeks shown (weeks 23, 30 and 41), the gap improved. From weeks 9 to 13 the agent kept selling holdings and buying others, and the gap went from -3.8% to -8.5%. That is the largest widening in the record. In the week after the week 11 rotation, the agent gained about 1% while buy-and-hold gained about 4.7%. The agent was never able to out-pick the equal-weight holding by rotating.
+
+LESSON 2: Don't make sell-heavy weeks that leave proceeds in cash or reduce overall stock exposure while the market is rising. The agent lagged buy-and-hold in the following week every time it did this. Reduce exposure only for a clear reason, and put the proceeds back into stocks.
+
+EVIDENCE:
+Week 19 | Day 120 | SELL STOCK_B 150, SELL STOCK_C 75 | agent value $98,673 | buy & hold $108,086 | gap -8.7%
+Week 20 | Day 125 | BUY STOCK_A 200 | agent value $99,237 | buy & hold $109,771 | gap -9.6%
+Week 24 | Day 145 | SELL STOCK_B 50, SELL STOCK_C 30 | agent value $104,956 | buy & hold $115,270 | gap -8.9%
+Week 25 | Day 150 | BUY STOCK_A 78 | agent value $108,363 | buy & hold $120,546 | gap -10.1%
+Week 44 | Day 245 | SELL STOCK_B 88, SELL STOCK_C 200 | agent value $94,114 | buy & hold $97,668 | gap -3.6%
+Week 45 | Day 250 | BUY STOCK_A 496, BUY STOCK_A 495 | agent value $95,747 | buy & hold $101,984 | gap -6.1%
+
+WHY: After each net-selling week the market rose and the agent captured less of the gain. In week 19→20 the agent gained about 0.6% against 1.6% for buy-and-hold. In week 24→25 it gained about 3.2% against 4.6%. In week 44→45 it gained about 1.7% against 4.4%, and the gap widened by 2.5 points. Staying less invested than the benchmark cost performance when prices rebounded.
+
+<lessons>
+1. Don't rotate positions every week. Hold the current allocation unless there is a clear reason to change it. Weeks with no trades usually narrowed the gap, and repeated sell-one-buy-another weeks usually widened it.
+2. Don't make sell-heavy weeks that leave proceeds in cash or reduce overall stock exposure while the market is rising. Net-selling weeks were followed by weeks where the agent lagged buy-and-hold. Reduce exposure only for a clear reason, and put the proceeds back into stocks.
+</lessons>

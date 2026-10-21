@@ -77,3 +77,9 @@ Anon data average:  +24.1%.   -35.7%
     Found the problem period:Yes (weeks 69–134)
 
 ## Initial lessons learned - "Keep holdings near equal-weight" and "don't switch", "don't sit in cash". This almost sounds like it is trending towards a buy and hold strategy... not what we are looking for. 
+
+## First run with reflexion - All three runs with lessons beat every baseline run and buy-and-hold. It lifted the agent from an average of 24.1% to 66.7%. The strategy was very close to just buy-and-hold. It's a momentum rotation: 100% in whichever stock has been strongest recently, with only about 8–10 switches in three years. The agent now behaves like a rule you could write in 10 lines of Python. All three runs acted very similiarly across all three.
+
+## The training returns didn't go up steadily (+62.5% → +70.8% → +52.1%). Round 3 did worst in training, but its lessons did best in testing. So the reviewer's lessons improved in a way the training scores didn't show.
+
+## Trading dropped from ~250 trades to only ~18. There were 0 leaks.

@@ -1,0 +1,37 @@
+**Assessment of the existing lessons**
+
+Lesson 1 (don't rotate weekly): Partly helped. The agent mostly held. Its rotation weeks (Weeks 11, 27, 28) coincided with lagging, but later rotations (Weeks 30, 31, 63, 85, 86) did not hurt, and the big gains came from the sell-B/buy-C shifts. So "rotation is bad" is too blunt. The agent traded rarely, and its edge came from a few concentrated tilts that were then held. I'll revise it.
+
+Lesson 2 (don't net-sell): Weak evidence. Week 11's partial sell cost about 0.5% of gap. Later trades were mostly sell-X, buy-Y in roughly equal dollar amounts, so they were not net-selling. Week 39 and Week 63 gave no evidence of cash drag. I'll keep a narrower version.
+
+**New lessons**
+
+LESSON: When you do shift, rotate out of a holding and into another stock in similar dollar amounts, then hold the new mix without further tinkering. Shifts that kept full exposure and were left alone widened the gap over later weeks.
+EVIDENCE:
+Week 62 | Day 335 | (no trades) | agent value $132,138 | buy & hold $127,867 | gap +3.3%
+Week 63 | Day 340 | SELL STOCK_B 40, BUY STOCK_C 28 | agent value $128,406 | buy & hold $123,740 | gap +3.8%
+Week 64 | Day 345 | (no trades) | agent value $128,021 | buy & hold $122,646 | gap +4.4%
+Week 65 | Day 350 | (no trades) | agent value $124,913 | buy & hold $118,992 | gap +5.0%
+Week 66 | Day 355 | (no trades) | agent value $119,181 | buy & hold $112,347 | gap +6.1%
+WHY: After a full-exposure rotation, the agent did nothing and the gap kept growing from +3.3% to +6.1%. The gap only changed on its own once the holdings differed from equal weight.
+
+LESSON: Don't make small partial sells without a specific reason. A small trim that leaves cash or lowers exposure produced a permanent drag and added no benefit in a rising market.
+EVIDENCE:
+Week 11 | Day 80 | SELL STOCK_A 30, SELL STOCK_B 30, BUY STOCK_C 50 | agent value $99,502 | buy & hold $99,555 | gap -0.1%
+Week 12 | Day 85 | (no trades) | agent value $103,676 | buy & hold $104,195 | gap -0.5%
+Week 13 | Day 90 | (no trades) | agent value $107,247 | buy & hold $107,843 | gap -0.6%
+WHY: After the week-11 trade the agent lagged by about 0.5% and never recovered it over the next 15 weeks. The gap fell from -0.1% to -0.5% in one week as the market rose.
+
+LESSON: Keep holding a concentrated allocation that is outperforming. Do not trim winners to rebalance toward equal weights. Once the agent was ahead, holding with no trades kept or extended the lead.
+EVIDENCE:
+Week 66 | Day 355 | (no trades) | agent value $119,181 | buy & hold $112,347 | gap +6.1%
+Week 67 | Day 360 | (no trades) | agent value $132,002 | buy & hold $122,399 | gap +7.8%
+Week 93 | Day 490 | (no trades) | agent value $162,877 | buy & hold $155,117 | gap +5.0%
+Week 95 | Day 500 | (no trades) | agent value $170,694 | buy & hold $161,205 | gap +5.9%
+WHY: Long no-trade stretches with a tilted portfolio produced the end result of +70.7% against +61.0%.
+
+<lessons>
+1. Trade rarely. When you do shift, move money from one stock to another in similar dollar amounts so total stock exposure stays the same, then hold the new mix for many weeks without further tinkering.
+2. Don't make small partial sells that leave cash or lower stock exposure unless there is a specific reason. Trims like this lagged buy-and-hold with no benefit.
+3. Keep holding a concentrated allocation that is outperforming. Don't trim winners to rebalance toward equal weights.
+</lessons>

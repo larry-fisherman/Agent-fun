@@ -1,0 +1,2 @@
+1. Don't rotate positions every week. Hold the current allocation unless there is a clear reason to change it. Weeks with no trades usually narrowed the gap, and repeated sell-one-buy-another weeks usually widened it.
+2. Don't make sell-heavy weeks that leave proceeds in cash or reduce overall stock exposure while the market is rising. Net-selling weeks were followed by weeks where the agent lagged buy-and-hold. Reduce exposure only for a clear reason, and put the proceeds back into stocks.

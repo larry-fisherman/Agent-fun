@@ -63,4 +63,5 @@ async def run_or_resume(result_path, log_path, **main_args):
 
 
 if __name__ == "__main__":
-    asyncio.run(run_experiment())  
+    asyncio.run(run_experiment(name="reflexion_v1"))
+
