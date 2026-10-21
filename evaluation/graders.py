@@ -31,11 +31,51 @@ def find_leaks(rows: list[dict], anonymized: bool) -> list[dict]:
                 break
     return leaks
 
+def concentration(rows: list[dict], prices) -> float:
+    """Average % of the portfolio held in the single largest position."""
+    shares_of_largest = []
+    for row in rows:
+        p = row["portfolio_after"]
+        position_values = [shares * prices.loc[row["date"], ticker]
+                           for ticker, shares in p["positions"].items()]
+        largest = max(position_values) if position_values else 0
+        shares_of_largest.append(largest / p["total_value"] * 100)       
+    return sum(shares_of_largest) / len(shares_of_largest)
+
+def trade_count(rows: list[dict]) -> int:
+    count = 0
+    for row in rows:
+        for call in row["tool_calls"]:
+            if call["name"].endswith('buy') or call['name'].endswith('sell'):
+                count += 1
+    return count
+
 if __name__ == "__main__":
-    for path in sorted(Path("experiments/results").glob("*.jsonl")):
+    import pandas as pd
+    from environment.anonymize import anonymize
+
+    def load_prices(path):
+        return pd.read_csv(path, index_col=0, parse_dates=True)
+
+    PRICES = {
+        "train_anon": anonymize(load_prices("data/prices_train.csv")),
+        "test_anon": anonymize(load_prices("data/prices.csv")),
+        "test_real": load_prices("data/prices.csv"),
+    }
+
+    paths = sorted(Path("experiments/results/baseline").glob("*.jsonl")) + \
+            sorted(Path("experiments/runs").glob("*/*.jsonl"))
+
+    for path in paths:
         rows = load_log(path)
-        anonymized = "_anon" in path.name
-        leaks = find_leaks(rows, anonymized)
-        print(f"{path.name} (anonymized={anonymized}): {len(leaks)} leaky weeks out of {len(rows)}")
-        for leak in leaks:
-            print(f"    week {leak['week']} ({leak['date']}): '{leak['word']}'")
+        is_real = path.parent.name == "baseline" and "_anon" not in path.name
+        if is_real:
+            prices = PRICES["test_real"]
+        elif path.name.startswith("train"):
+            prices = PRICES["train_anon"]
+        else:
+            prices = PRICES["test_anon"]
+
+        leaks = find_leaks(rows, anonymized=not is_real)
+        print(f"{path.parent.name}/{path.name}: leaks {len(leaks)}, "
+              f"trades {trade_count(rows)}, concentration {concentration(rows, prices):.0f}%")
