@@ -84,3 +84,44 @@ Anon data average:  +24.1%.   -35.7%
 
 ## Trading dropped from ~250 trades to only ~18. There were 0 leaks. Lessons improved the test return from +24.1% to +66.7%, with 0 leaks. A momentum rule chosen on training data got +64.4%, so most of the improvement comes from the strategy the lessons led to. The agent beat the rule mainly on drawdown (-32.7% vs -39.6%) and with far fewer switches. The lessons' effect is visible step by step in the trade counts and concentration. The final all-in behaviour came from the agent's interpretation of the lessons, not from an explicit instruction.
 
+## Second run with reflextion (new data) - we used the lessons that were generated on the 2018-2020 data and applied them to no 2020-2022 like reflexion 1 run but the 2023-2025 data. The lessons that looked great on 2020–2022 made the agent worse on new data. The lessons produced a concentrated, single-stock style that did very well in one market and badly in the next.
+
+# The results, 2023–2025
+    Strategy: Buy and hold
+    Average: 72.3%
+    Avg max drawdown: -14.4% 	
+    Trades: 0
+    Concentration: ~33% 
+
+    Strategy: Momentum rule (30/0, same settings)
+    Average: 66.2%
+    Avg max drawdown: -13.0%
+    Trades: 23
+    Concentration: 100%
+
+    Strategy: Agent, no lessons
+    Run 1: 55.5%
+    Run 2: 64.4%
+    Run 3: 48.7%
+    Average: 56.2%
+    Avg max drawdown: -13.5%
+    Trades: 165
+    Concentration: 63%
+
+    Strategy: Agent, lessons v3
+    Run 1: 14.3%
+    Run 2: 65.2%
+    Run 3: 26.8%
+    Average: 35.4%
+    Avg max drawdown: -20.4%
+    Trades: 16
+    Concentration: 100
+
+	                    2020–22	       2023–24
+Buy-and-hold	        +37.3%	       +72.3%
+Momentum rule	        +64.4%	       +66.2%
+Agent, no lessons	    +24.1%	       +56.2%
+Agent, lessons v3	    +66.7% (best)  +35.4% (worst)
+Lessons vs no lessons	+42.6	       -20.8
+
+
