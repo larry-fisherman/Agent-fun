@@ -124,4 +124,4 @@ Agent, no lessons	    +24.1%	       +56.2%
 Agent, lessons v3	    +66.7% (best)  +35.4% (worst)
 Lessons vs no lessons	+42.6	       -20.8
 
-
+## The all-in behaviour came from the reviewer's objective. It was told to beat buy-and-hold on return only, and never saw risk. If it's told to beat buy-and-hold without more risk, and can see the risk in the record, its lessons will stop pushing the agent to concentrate, and the agent will generalise better to 2023–24.

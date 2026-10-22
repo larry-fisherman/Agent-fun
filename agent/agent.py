@@ -75,7 +75,7 @@ async def main(anonymize_data: bool = True, max_weeks: int=150, data_path: str |
     print("Final portfolio:", market.portfolio())
     print(f"Return: {ret:.1f}%")
     print(f"Max drawdown: {dd:.1f}%")
-    return {"log_path": str(log_path), "return": ret, "max_drawdown": dd}
+    return {"log_path": str(log_path), "return": ret, "max_drawdown": dd, "data_path": data_path}
 
 
 async def run_step(prompt: str, options: ClaudeAgentOptions) -> dict:
@@ -100,3 +100,4 @@ async def run_step(prompt: str, options: ClaudeAgentOptions) -> dict:
 
 if __name__ == "__main__":
     asyncio.run(main())
+    

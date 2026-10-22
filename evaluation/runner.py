@@ -10,7 +10,7 @@ TRAIN = "data/prices_train.csv"
 TEST = "data/prices.csv"
 
 
-async def run_experiment(name: str, rounds: int = 3, test_runs: int = 3, max_weeks: int = 150):
+async def run_experiment(name: str, rounds: int = 3, test_runs: int = 3, max_weeks: int = 150, risk: bool=False):
     lessons = None
     lessons_path = None
     exp_dir = Path("experiments/runs") / name      
@@ -24,8 +24,7 @@ async def run_experiment(name: str, rounds: int = 3, test_runs: int = 3, max_wee
         if lessons_path.exists():
             lessons = load_lessons(lessons_path)
         else:
-            lessons = await reflect(result["log_path"], TRAIN, str(lessons_path), previous_lessons=lessons)
-
+            lessons = await reflect(result["log_path"], TRAIN, str(lessons_path), previous_lessons=lessons, risk=risk)
     test_results = []
     for i in range(1, test_runs +1):
         result = await run_or_resume(exp_dir / f"test_{i}.result.json",
@@ -88,8 +87,17 @@ async def holdout():
     # the same agent with NO lessons, on the same new period (the control)
     await run_test("reflextion_v1_(23-25)_nolessons", HOLDOUT, lessons_path=None)
 
+async def risk_experiment(prefix: str = "reflexion_risk", max_weeks: int = 150):
+    # train on 2018–19 with the risk-aware reviewer, then test on 2020–22
+    await run_experiment(name=prefix, risk=True, max_weeks=max_weeks)
+    # test the same final lessons on 2023–24
+    await run_test(f"{prefix}_(23-25)", HOLDOUT,
+                   lessons_path=f"experiments/runs/{prefix}/lessons_v3.txt",
+                   max_weeks=max_weeks)
+
 
 if __name__ == "__main__":
-    asyncio.run(holdout())
+    asyncio.run(risk_experiment(prefix="reflexion_v2"))
+
 
 

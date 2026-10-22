@@ -31,16 +31,19 @@ def find_leaks(rows: list[dict], anonymized: bool) -> list[dict]:
                 break
     return leaks
 
+def largest_position_pct(row: dict, prices) -> float:
+    """% of the portfolio in the single largest position, for one week."""
+    p = row["portfolio_after"]
+    position_values = [shares * prices.loc[row["date"], ticker]
+                       for ticker, shares in p["positions"].items()]
+    largest = max(position_values) if position_values else 0
+    return largest / p["total_value"] * 100
+
+
 def concentration(rows: list[dict], prices) -> float:
     """Average % of the portfolio held in the single largest position."""
-    shares_of_largest = []
-    for row in rows:
-        p = row["portfolio_after"]
-        position_values = [shares * prices.loc[row["date"], ticker]
-                           for ticker, shares in p["positions"].items()]
-        largest = max(position_values) if position_values else 0
-        shares_of_largest.append(largest / p["total_value"] * 100)       
-    return sum(shares_of_largest) / len(shares_of_largest)
+    pcts = [largest_position_pct(row, prices) for row in rows]
+    return sum(pcts) / len(pcts)
 
 def trade_count(rows: list[dict]) -> int:
     count = 0
