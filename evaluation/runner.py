@@ -61,7 +61,35 @@ async def run_or_resume(result_path, log_path, **main_args):
     save_result(result, result_path)
     return result
 
+async def run_test(name: str, data_path: str, lessons_path: str | None, runs: int = 3, max_weeks: int = 150):
+    exp_dir = Path("experiments/runs") / name
+    exp_dir.mkdir(parents=True, exist_ok=True)
+
+    results = []
+    for i in range(1, runs + 1):
+        result = await run_or_resume(exp_dir / f"test_{i}.result.json",
+                                     exp_dir / f"test_{i}.jsonl",
+                                     data_path=data_path, lessons_path=lessons_path, max_weeks=max_weeks)
+        results.append(result)
+
+    b = baseline(data_path)
+    print(f"\n===== {name} =====")
+    print(f"Buy-and-hold:  {b['return']:+.1f}%  dd {b['max_drawdown']:.1f}%")
+    for i, r in enumerate(results, 1):
+        print(f"Run {i}:         {r['return']:+.1f}%  dd {r['max_drawdown']:.1f}%")
+    return results
+
+HOLDOUT = "data/prices_(23-25).csv"
+
+async def holdout():
+    # the lessons from previous run are used on different data
+    await run_test("reflextion_v1_(23-25)", HOLDOUT,
+                   lessons_path="experiments/runs/reflexion_v1/lessons_v3.txt")
+    # the same agent with NO lessons, on the same new period (the control)
+    await run_test("reflextion_v1_(23-25)_nolessons", HOLDOUT, lessons_path=None)
+
 
 if __name__ == "__main__":
-    asyncio.run(run_experiment(name="reflexion_v1"))
+    asyncio.run(holdout())
+
 

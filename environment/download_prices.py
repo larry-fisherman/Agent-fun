@@ -9,4 +9,4 @@ def download(start: str, end: str, out_path: str) -> None:
     print(df.head())
 
 if __name__ == "__main__":
-    download("2018-01-01", "2020-01-01", "data/prices_train.csv")
+    download("2023-01-01", "2025-01-01", "data/prices_(23-25).csv")

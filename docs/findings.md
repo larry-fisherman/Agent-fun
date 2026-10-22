@@ -82,4 +82,5 @@ Anon data average:  +24.1%.   -35.7%
 
 ## The training returns didn't go up steadily (+62.5% → +70.8% → +52.1%). Round 3 did worst in training, but its lessons did best in testing. So the reviewer's lessons improved in a way the training scores didn't show.
 
-## Trading dropped from ~250 trades to only ~18. There were 0 leaks.
+## Trading dropped from ~250 trades to only ~18. There were 0 leaks. Lessons improved the test return from +24.1% to +66.7%, with 0 leaks. A momentum rule chosen on training data got +64.4%, so most of the improvement comes from the strategy the lessons led to. The agent beat the rule mainly on drawdown (-32.7% vs -39.6%) and with far fewer switches. The lessons' effect is visible step by step in the trade counts and concentration. The final all-in behaviour came from the agent's interpretation of the lessons, not from an explicit instruction.
+
