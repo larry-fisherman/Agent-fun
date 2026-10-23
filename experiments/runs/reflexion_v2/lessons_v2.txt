@@ -1,0 +1,3 @@
+1. Default to holding the starting mix. Change positions only for a clear reason that has lasted several weeks, not because of one week's price move. Every swap and trim in the last run left the agent further behind buy-and-hold.
+2. Don't sell part of a position after it drops. Partial sales after declines left the agent underexposed during the rebounds that followed, and they did not reduce the maximum drawdown.
+3. Don't rotate capital into one stock to push it toward half the portfolio. Keep every position near its starting weight unless there is a strong, lasting reason. Concentrating to about 50% added risk, and the agent's largest single-week drop came while it was that concentrated.

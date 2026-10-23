@@ -1,0 +1,34 @@
+**Review of the existing lessons**
+- **Lesson 1 (default to holding): keep, revised.** The agent mostly held. The gap grew slowly with no trades and widened in steps around the trade weeks. No trade ever closed it.
+- **Lesson 2 (don't reverse a switch): drop as a separate rule.** The agent never reversed a switch, so the record neither supports nor contradicts it. I folded the useful part into the new lessons.
+
+LESSON: Don't sell part of a position just because it fell for a week or two. Trim only if the reason has lasted several weeks and you can state it. Partial sales after drops left the agent with less exposure when prices rebounded.
+EVIDENCE:
+Week 39 | Day 220 | (no trades) | agent value $106,813 | buy & hold $109,385 | gap -2.4% | largest position 47%
+Week 40 | Day 225 | SELL STOCK_A 150 | agent value $103,199 | buy & hold $106,335 | gap -2.9% | largest position 45%
+Week 41 | Day 230 | (no trades) | agent value $107,331 | buy & hold $111,110 | gap -3.4% | largest position 46%
+Week 43 | Day 240 | SELL STOCK_A 150 | agent value $102,555 | buy & hold $105,406 | gap -2.7% | largest position 46%
+Week 45 | Day 250 | (no trades) | agent value $99,800 | buy & hold $101,984 | gap -2.1% | largest position 45%
+WHY: The sell at week 40 came after a drop. The gap kept widening to -3.4% in the rebound that followed. The week 43 sale did avoid part of a drop (gap -0.5% the next week). That benefit was gone by week 45 (-2.1%). Net, the trims cost return and did not reduce the maximum drawdown meaningfully (-22% vs -23%).
+
+LESSON: Don't move capital into one stock to push it toward half the portfolio. Rotations into a single name raised concentration from about 41% to about 50% without narrowing the gap. Cap any single position near its starting weight unless there is a strong, lasting reason.
+EVIDENCE:
+Week 32 | Day 185 | (no trades) | agent value $121,102 | buy & hold $123,481 | gap -1.9% | largest position 42%
+Week 33 | Day 190 | SELL STOCK_B 100, BUY STOCK_A 82 | agent value $124,501 | buy & hold $126,796 | gap -1.8% | largest position 50%
+Week 55 | Day 300 | BUY STOCK_A 119 | agent value $109,633 | buy & hold $116,964 | gap -6.3% | largest position 47%
+Week 56 | Day 305 | (no trades) | agent value $114,397 | buy & hold $122,711 | gap -6.8% | largest position 47%
+WHY: The week 33 rotation took the largest position to 50% and the gap did not improve. The agent's biggest drop (week 34, about -7.5%) came while it held that 50% position. The week 55 purchase was followed by the gap widening from -4.9% to -6.8%. Concentration added risk and no return.
+
+LESSON: When the agent is already behind buy-and-hold, a trade should not be the response. Each trade week was followed by a flat or wider gap, and the large widenings (weeks 49–55) came while holdings had drifted away from the starting mix. Prefer returning toward the starting equal-weight mix over making new directional bets.
+EVIDENCE:
+Week 48 | Day 265 | (no trades) | agent value $102,114 | buy & hold $104,351 | gap -2.1% | largest position 47%
+Week 50 | Day 275 | (no trades) | agent value $104,013 | buy & hold $109,375 | gap -4.9% | largest position 45%
+Week 81 | Day 430 | SELL STOCK_C 100, BUY STOCK_A 125 | agent value $127,750 | buy & hold $135,727 | gap -5.9% | largest position 41%
+Week 82 | Day 435 | (no trades) | agent value $127,740 | buy & hold $136,102 | gap -6.1% | largest position 41%
+WHY: After the earlier sales left the portfolio underweight in the winners, the gap went from -2.1% to -4.9% in two weeks. The week 81 swap did not close it (-5.9% to -6.1%). Selling winners and buying other stocks never recovered the lost ground.
+
+<lessons>
+1. Default to holding the starting mix. Change positions only for a clear reason that has lasted several weeks, not because of one week's price move. Every swap and trim in the last run left the agent further behind buy-and-hold.
+2. Don't sell part of a position after it drops. Partial sales after declines left the agent underexposed during the rebounds that followed, and they did not reduce the maximum drawdown.
+3. Don't rotate capital into one stock to push it toward half the portfolio. Keep every position near its starting weight unless there is a strong, lasting reason. Concentrating to about 50% added risk, and the agent's largest single-week drop came while it was that concentrated.
+</lessons>

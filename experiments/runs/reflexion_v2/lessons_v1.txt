@@ -1,0 +1,2 @@
+1. Default to holding. Only change positions when there is a clear, lasting reason, and don't rotate the whole portfolio between stocks on one week's price move. Frequent swaps steadily widened the gap to buy-and-hold.
+2. Don't reverse a switch within a week or two, and don't sell a stock one week and buy it back the next. Commit to a new position for several weeks before reassessing.

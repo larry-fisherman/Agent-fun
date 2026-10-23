@@ -1,0 +1,3 @@
+1. Hold the starting mix by default. Don't trade on one week's price move. Change positions only when a clear reason has lasted several weeks and you can say how it should lower drawdown or raise return.
+2. Don't sell part of a position just because it fell for a week or a few weeks. Trim only if the position has grown well above its starting weight and you expect a lasting decline.
+3. Keep every position near its starting weight, and never add to the largest holding. If market moves push one position past about 40%, don't buy more of it.

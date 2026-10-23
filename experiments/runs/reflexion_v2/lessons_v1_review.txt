@@ -1,0 +1,20 @@
+LESSON: Default to holding. Only change a position when there is a clear reason, and don't rotate the whole portfolio between stocks on one week's price move. In this record, almost every week brought a swap, and the gap to buy-and-hold only widened, from 0% to about -11%.
+EVIDENCE:
+Week 49 | Day 270 | SELL STOCK_C 100, BUY STOCK_A 129 | agent value $102,822 | buy & hold $106,926 | gap -3.8% | largest position 73%
+Week 50 | Day 275 | SELL STOCK_C 120, BUY STOCK_A 147 | agent value $103,611 | buy & hold $109,375 | gap -5.3% | largest position 58%
+Week 55 | Day 300 | SELL STOCK_B 100, BUY STOCK_A 102 | agent value $109,901 | buy & hold $116,964 | gap -6.0% | largest position 52%
+Week 57 | Day 310 | SELL STOCK_B 50, BUY STOCK_C 39 | agent value $110,090 | buy & hold $118,216 | gap -6.9% | largest position 46%
+WHY: Each of these weeks followed a swap between stocks, and the gap grew by 1–2 points or more while buy-and-hold kept compounding. The agent gave up more by switching than it gained. Buy-and-hold never swapped and finished ahead (+61.0% vs +44.3%).
+
+LESSON: Don't reverse a switch within a week or two, and don't sell a stock one week and buy it back the next. When the agent moved its holdings from one stock to another and then back again, it took losses on both legs and ended up behind.
+EVIDENCE:
+Week 66 | Day 355 | SELL STOCK_C 753, BUY STOCK_B 999 | agent value $107,808 | buy & hold $112,347 | gap -4.0% | largest position 90%
+Week 67 | Day 360 | SELL STOCK_B 999, BUY STOCK_C 707 | agent value $111,905 | buy & hold $122,399 | gap -8.6% | largest position 100%
+Week 3 | Day 40 | SELL STOCK_B 103, BUY STOCK_A 101 | agent value $101,746 | buy & hold $102,225 | gap -0.5% | largest position 90%
+Week 4 | Day 45 | SELL STOCK_A 101, BUY STOCK_B 99 | agent value $103,415 | buy & hold $104,990 | gap -1.5% | largest position 90%
+WHY: After the week 66 move into one stock, the agent gained about 3.8% by week 67 while buy-and-hold gained about 8.9%. The gap went from -4.0% to -8.6% in one step, and the agent then rotated straight back. In the earlier case, it went from one stock to another and back within two weeks, and the gap widened each time. Quick reversals show the entry signal was noise. Commit to a position for several weeks before reassessing.
+
+<lessons>
+1. Default to holding. Only change positions when there is a clear, lasting reason, and don't rotate the whole portfolio between stocks on one week's price move. Frequent swaps steadily widened the gap to buy-and-hold.
+2. Don't reverse a switch within a week or two, and don't sell a stock one week and buy it back the next. Commit to a new position for several weeks before reassessing.
+</lessons>

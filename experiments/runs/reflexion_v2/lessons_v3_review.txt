@@ -1,0 +1,35 @@
+Every row shows a gap of +0.0%. The agent made no trades after the initial equal-weight purchase, so it was effectively buy-and-hold. It finished +61.2% against +61.0% for buy-and-hold, and both had a maximum drawdown of -23.0%. The record shows no pattern of the agent doing something different from buy-and-hold, so it can't show whether any lesson helped or hurt.
+
+**Judging the existing lessons**
+
+Lesson 1 (default to holding the starting mix): The agent followed it. It held for 94 straight weeks and matched buy-and-hold. It did not beat buy-and-hold, and the record has no case where a swap or trim was tested. I'll keep it, but it needs to stay a default and not a ban on action.
+
+Lesson 2 (don't sell part of a position after it drops): The agent followed it by making no sales. Its largest drops matched buy-and-hold's exactly, so the record neither shows that trimming would have failed nor that it would have helped. The drawdown was -23.0% either way. The rule is untested here, and it's too absolute. I'll soften it to a rule about reacting to a single week's drop.
+
+Lesson 3 (don't concentrate toward half the portfolio): No concentration was attempted. The largest position drifted from 33% to about 41% through market moves alone and never went higher. The drift was harmless in this run, so the lesson wasn't tested. I'll keep it, restated to cover passive drift.
+
+**Evidence and what it shows**
+
+LESSON: Hold the starting mix by default, and don't trade on a single week's price move. Make a change only when a clear reason has lasted several weeks and you can state how it should lower drawdown or raise return.
+EVIDENCE:
+Week 1 | Day 30 | BUY STOCK_A 341, BUY STOCK_B 333, BUY STOCK_C 314 | agent value $100,000 | buy & hold $100,000 | gap +0.0% | largest position 33%
+Week 95 | Day 500 | (no trades) | agent value $161,205 | buy & hold $161,205 | gap +0.0% | largest position 37%
+WHY: Buying the equal mix once and then holding matched buy-and-hold, with +61.2% against +61.0% and the same -23.0% drawdown. Doing nothing is safe, but it can't beat buy-and-hold on its own.
+
+LESSON: Don't sell part of a position just because it fell in one week or a few weeks. Trim only if the position has grown well above its starting weight and you have a reason to expect a lasting decline.
+EVIDENCE:
+Week 44 | Day 245 | (no trades) | agent value $97,668 | buy & hold $97,668 | gap +0.0% | largest position 37%
+Week 45 | Day 250 | (no trades) | agent value $101,984 | buy & hold $101,984 | gap +0.0% | largest position 37%
+WHY: The portfolio fell to its low point and rebounded by about 4% the next week. A trim after the drop would have left the agent underexposed to that rebound. The record doesn't show that trimming lowers the maximum drawdown, because the agent held through it and the drawdown matched buy-and-hold.
+
+LESSON: Keep every position near its starting weight, and don't add to the largest holding. If market moves push one position past roughly 40%, don't buy more of it.
+EVIDENCE:
+Week 62 | Day 335 | (no trades) | agent value $127,867 | buy & hold $127,867 | gap +0.0% | largest position 38%
+Week 67 | Day 360 | (no trades) | agent value $122,399 | buy & hold $122,399 | gap +0.0% | largest position 41%
+WHY: Drift from 33% to 41% happened with no trades. Holding that weight was not harmful here, and the -23.0% drawdown was identical to buy-and-hold's. The rule therefore only guards against deliberate concentration.
+
+<lessons>
+1. Hold the starting mix by default. Don't trade on one week's price move. Change positions only when a clear reason has lasted several weeks and you can say how it should lower drawdown or raise return.
+2. Don't sell part of a position just because it fell for a week or a few weeks. Trim only if the position has grown well above its starting weight and you expect a lasting decline.
+3. Keep every position near its starting weight, and never add to the largest holding. If market moves push one position past about 40%, don't buy more of it.
+</lessons>
