@@ -136,3 +136,8 @@ Lessons vs no lessons	+42.6	       -20.8
     - Reflection seemed to work (+42.6 on 2020–22)…
     - …but didn't generalise (-20.8 on 2023–24). It had learned concentrated momentum, mostly explained by a 15-line rule (the momentum trader).
     - Cause: the return-only objective. Fix: a risk-aware objective plus risk visibility. That generalised to both periods, by converging on buy-and-hold.
+    - Either there is no edge to find, or reflection isn't able to find one.
+
+## The problem is that we don't have a positive control - a determined outcome to test against. "Did it do the correct action?" The next step is to create synthetic data that has underlying patterns in the data that the agent will need to recognize.
+
+# The pattern being incorporated is a "rebound pattern" - when a stock falls more than 4% in one week, it gets an extra boost the next week. This is a good choice because it explicitly goes against the trading patterns of the agent before. It would often sell after a sharp weekly drop.
