@@ -125,3 +125,14 @@ Agent, lessons v3	    +66.7% (best)  +35.4% (worst)
 Lessons vs no lessons	+42.6	       -20.8
 
 ## The all-in behaviour came from the reviewer's objective. It was told to beat buy-and-hold on return only, and never saw risk. If it's told to beat buy-and-hold without more risk, and can see the risk in the record, its lessons will stop pushing the agent to concentrate, and the agent will generalise better to 2023–24.
+
+## The risk-aware reviewer stopped the all-in behaviour, and the agent generalised to both periods. It got there by learning to behave almost exactly like buy-and-hold. The v2 lessons literaly said to "hold the starting mix by default"; "the best way to beat buy-and-hold without more risk is to be buy-and-hold."
+
+# Reflection optimises whatever objective you give it, including in ways you didn't intend, and it shows you can steer that by changing what the reviewer is told to care about, and what it can see.
+
+# Where we stand:
+    - The naive agent looked good, but it was memory. +44.6% → +24.1% once names and dates were hidden.
+    - The reviewer produced false evidence until it was given structure and a stronger model.
+    - Reflection seemed to work (+42.6 on 2020–22)…
+    - …but didn't generalise (-20.8 on 2023–24). It had learned concentrated momentum, mostly explained by a 15-line rule (the momentum trader).
+    - Cause: the return-only objective. Fix: a risk-aware objective plus risk visibility. That generalised to both periods, by converging on buy-and-hold.
