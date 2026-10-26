@@ -1,0 +1,43 @@
+**Review of the current lessons**
+
+- Lesson 1 (cap positions at 50–60%): The agent mostly followed it, with the largest position at 41–52% for long stretches. The cap did not stop a -13.5% drawdown against buy-and-hold's -8.3%. The drops happened at 40–50% concentration, so the cap is only partly useful. Keep it, but make it tighter.
+- Lesson 2 (don't chase jumps, avoid rotating): The agent still churned a lot in the second half, and the gap kept widening. Keep it, but make it more specific.
+- Lesson 3 (protect the lead, cut decisively): The agent led by up to +8% through week 40, then gave it all back. The lesson says to cut, but it does not say when to get back in. The agent sold down and stayed under-invested while buy-and-hold kept rising. Revise it.
+
+**Main patterns**
+
+1. Going to cash, or near cash, and then buying back late. This happened at the sell-off in week 42 and again in weeks 90–94.
+2. Constant small trims and re-buys. The agent sold stocks that then rose, and bought after rises.
+3. Total exposure fell in the late uptrend. Weeks 59–64 and 90–94 are examples.
+
+LESSON: Do not liquidate the whole portfolio, or go close to fully in cash, after a single down week. Keep at least about 70–80% of capital invested unless several consecutive weeks of broad decline have occurred. Re-entering at full size after a sell-off is how the lead was lost.
+EVIDENCE:
+Week 42 | Day 235 | SELL STOCK_A 106, SELL STOCK_C 500 | agent value $119,458 | buy & hold $115,236 | gap +3.7% | largest position 0% | week: STOCK_A -7.1%, STOCK_B -4.6%, STOCK_C -2.6%
+Week 43 | Day 240 | BUY STOCK_B 384 | agent value $119,458 | buy & hold $121,245 | gap -1.5% | largest position 50% | week: STOCK_A +4.1%, STOCK_B +10.2%, STOCK_C -3.3%
+Week 94 | Day 495 | SELL STOCK_B 100 | agent value $130,959 | buy & hold $145,375 | gap -9.9% | largest position 0% | week: STOCK_A -4.7%, STOCK_B -1.7%, STOCK_C -1.3%
+WHY: In both cases the agent moved fully to cash after a down week. The next week rebounded (+10.2% in one stock in the first case) while the agent sat out, and the lead turned into a deficit. In week 42 it went to cash after the portfolio had already dropped, so the sale locked in the loss.
+
+LESSON: Do not sell a stock in small pieces over several weeks while the overall market is trending up, and do not sell winners just because they rose. Trim only when a position is above the cap or has fallen several weeks in a row.
+EVIDENCE:
+Week 59 | Day 320 | SELL STOCK_C 350, BUY STOCK_A 250 | agent value $113,252 | buy & hold $127,439 | gap -11.1% | largest position 35% | week: STOCK_A +10.2%, STOCK_B +1.3%, STOCK_C -1.0%
+Week 62 | Day 335 | SELL STOCK_A 100 | agent value $112,443 | buy & hold $127,704 | gap -11.9% | largest position 25% | week: STOCK_A -2.1%, STOCK_B +1.8%, STOCK_C -4.1%
+Week 63 | Day 340 | SELL STOCK_A 75 | agent value $111,898 | buy & hold $125,122 | gap -10.6% | largest position 25% | week: STOCK_A -3.4%, STOCK_B -0.5%, STOCK_C -2.6%
+Week 64 | Day 345 | (no trades) | agent value $111,812 | buy & hold $129,559 | gap -13.7% | largest position 25% | week: STOCK_A +9.4%, STOCK_B -0.3%, STOCK_C -0.4%
+WHY: The agent sold a stock for several weeks in a row, and the stock then rose 9.4% right after the sales. The agent's value stayed flat at about $112,000 while buy-and-hold climbed. The gap widened from -11% to -14%.
+
+LESSON: Buying a stock right after a large weekly gain, and selling it right after a drop, was repeatedly unprofitable. Prefer holding positions through ordinary weekly swings of up to about 5%. Make a trade only when a position is clearly above the cap or has declined for several weeks in a row.
+EVIDENCE:
+Week 40 | Day 225 | SELL STOCK_B 202, BUY STOCK_C 500 | agent value $122,507 | buy & hold $119,132 | gap +2.8% | largest position 27% | week: STOCK_A +5.7%, STOCK_B -11.0%, STOCK_C +9.6%
+Week 41 | Day 230 | (no trades) | agent value $121,410 | buy & hold $121,627 | gap -0.2% | largest position 27% | week: STOCK_A -0.3%, STOCK_B +7.2%, STOCK_C -3.2%
+Week 87 | Day 460 | BUY STOCK_B 350 | agent value $136,167 | buy & hold $146,713 | gap -7.2% | largest position 49% | week: STOCK_A -4.3%, STOCK_B +1.8%, STOCK_C -0.7%
+Week 88 | Day 465 | SELL STOCK_B 200 | agent value $131,049 | buy & hold $145,... 
+
+<lessons>
+1. Do not move the whole portfolio to cash, or close to it, after one down week. Keep most capital invested (roughly 70–80% or more) unless several consecutive weeks of broad decline have occurred. Sold-out positions repeatedly missed the rebound and turned a lead into a deficit.
+2. Do not sell a stock in small pieces over several weeks, or sell winners just because they rose, while stocks are trending up. Trim only when a position is above the cap or has fallen for several weeks in a row.
+3. Hold positions through ordinary weekly swings of up to about 5%. Do not sell after one drop, and do not buy after one jump. Buying a jump or selling a dip was repeatedly followed by a reversal.
+4. Keep the single-position cap at about 50%. Drawdowns still happened at 40–50% concentration, so when one stock is near the cap, trim it to about 35–40% rather than letting it drift up.
+5. When well ahead of buy-and-hold, protect the lead by cutting a stock that has fallen several weeks in a row. After cutting, put the proceeds into the other stocks rather than leaving them in cash.
+</lessons>
+
+I ran out of room partway through the third lesson's evidence. The week 88 row is cut off. The week 87–88 pair is the only evidence I started to copy for that lesson, so treat that lesson as less well supported than the first two.

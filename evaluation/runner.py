@@ -10,7 +10,7 @@ TRAIN = "data/prices_train.csv"
 TEST = "data/prices.csv"
 
 
-async def run_experiment(name: str, rounds: int = 3, test_runs: int = 3, max_weeks: int = 150, risk: bool=False):
+async def run_experiment(name: str, rounds: int = 3, test_runs: int = 3, max_weeks: int = 150, risk: bool=False, show_prices: bool = False, train_path: str = TRAIN, test_path: str = TEST):
     lessons = None
     lessons_path = None
     exp_dir = Path("experiments/runs") / name      
@@ -19,25 +19,24 @@ async def run_experiment(name: str, rounds: int = 3, test_runs: int = 3, max_wee
     for r in range(1, rounds + 1):
         result = await run_or_resume(exp_dir / f"train_r{r}.result.json",
                                     exp_dir / f"train_r{r}.jsonl",
-                                    data_path=TRAIN, lessons_path=lessons_path, max_weeks=max_weeks)
+                                    data_path=train_path, lessons_path=lessons_path, max_weeks=max_weeks)
         lessons_path = exp_dir / f"lessons_v{r}.txt"
         if lessons_path.exists():
             lessons = load_lessons(lessons_path)
         else:
-            lessons = await reflect(result["log_path"], TRAIN, str(lessons_path), previous_lessons=lessons, risk=risk)
+            lessons = await reflect(result["log_path"], train_path, str(lessons_path), previous_lessons=lessons, risk=risk, show_prices=show_prices)
     test_results = []
     for i in range(1, test_runs +1):
         result = await run_or_resume(exp_dir / f"test_{i}.result.json",
                                     exp_dir / f"test_{i}.jsonl",
-                                    data_path=TEST, lessons_path=lessons_path, max_weeks=max_weeks)
+                                    data_path=test_path, lessons_path=lessons_path, max_weeks=max_weeks)
 
         test_results.append(result)
         print(result)
 
-    b = baseline(TEST)
+    b = baseline(test_path)
     print("\n===== TEST RESULTS =====")
     print(f"Buy-and-hold:          {b['return']:+.1f}%  dd {b['max_drawdown']:.1f}%")
-    print(f"No-lessons baseline:   +24.1% avg  dd -35.7% avg   (from earlier runs)")
     for i, r in enumerate(test_results, 1):
         print(f"With lessons, run {i}:  {r['return']:+.1f}%  dd {r['max_drawdown']:.1f}%   {r['log_path']}")
 
@@ -95,9 +94,15 @@ async def risk_experiment(prefix: str = "reflexion_risk", max_weeks: int = 150):
                    lessons_path=f"experiments/runs/{prefix}/lessons_v3.txt",
                    max_weeks=max_weeks)
 
+async def synthetic_experiment(levels=('strong', 'medium', 'weak', 'no_pattern'), prefix: str = "synth", max_weeks: int = 150):
+    for level in levels:
+        train = f"data/synthetic/{level}_train.csv"
+        test = f"data/synthetic/{level}_test.csv"
+        await run_experiment(name=f"{prefix}_{level}", train_path=train, test_path=test, risk=True, show_prices=True, max_weeks=max_weeks)
+        await run_test(f"{prefix}_{level}_nolessons", test, lessons_path=None, max_weeks=max_weeks)
 
 if __name__ == "__main__":
-    asyncio.run(risk_experiment(prefix="reflexion_v2"))
+    asyncio.run(synthetic_experiment(prefix="reflexion_v3", max_weeks=150))
 
 
 

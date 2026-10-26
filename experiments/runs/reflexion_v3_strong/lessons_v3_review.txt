@@ -1,0 +1,25 @@
+LESSON: Stay almost fully invested, at about 95% or more. Raise the target from the old 70–80% floor. Keep cash near zero unless several weeks of broad decline have occurred. The agent's value lagged in strong up weeks and the gap widened steadily, which points to idle cash or under-exposure.
+EVIDENCE:
+Week 59 | Day 320 | (no trades) | agent value $108,859 | buy & hold $127,439 | gap -14.6% | largest position 39% | week: STOCK_A +10.2%, STOCK_B +1.3%, STOCK_C -1.0%
+Week 82 | Day 435 | BUY STOCK_A 200 | agent value $119,458 | buy & hold $145,179 | gap -17.7% | largest position 35% | week: STOCK_A +5.0%, STOCK_B +7.8%, STOCK_C +1.4%
+Week 61 | Day 330 | (no trades) | agent value $109,866 | buy & hold $128,690 | gap -14.6% | largest position 33% | week: STOCK_A +3.8%, STOCK_B +5.6%, STOCK_C +2.8%
+WHY: In the week-59 row all three stocks were flat or up, yet the agent captured only about 2.4% against about 4.4% for buy-and-hold. The week-82 and week-61 rows show the same shortfall in rising weeks. The agent ended +17.8% against +50.6%. Most of the shortfall built up while the portfolio was under-exposed, not in a few bad weeks. The largest position was often only 33–40%, so the portfolio was probably under-invested overall.
+
+LESSON: Do not rotate between stocks every week. Make a trade only when a position is above the cap, or when a stock has fallen for several weeks in a row. When one stock rises or falls in a single week, leave the portfolio alone. Rotation between two held stocks added no return and gave up exposure.
+EVIDENCE:
+Week 64 | Day 345 | SELL STOCK_C 150, BUY STOCK_A 53 | agent value $109,271 | buy & hold $129,559 | gap -15.7% | largest position 41% | week: STOCK_A +9.4%, STOCK_B -0.3%, STOCK_C -0.4%
+Week 77 | Day 410 | SELL STOCK_B 40, BUY STOCK_C 116 | agent value $113,840 | buy & hold $137,600 | gap -17.3% | largest position 37% | week: STOCK_A +0.6%, STOCK_B +7.3%, STOCK_C +7.7%
+Week 78 | Day 415 | SELL STOCK_B 100, BUY STOCK_C 255 | agent value $111,198 | buy & hold $134,388 | gap -17.3% | largest position 31% | week: STOCK_A +0.3%, STOCK_B -7.4%, STOCK_C +5.2%
+WHY: The agent traded in about 80% of weeks, usually selling one stock to buy another, and the gap drifted from +2% to -18%. In week 64 it bought the stock that had just jumped 9.4%. In week 77 it sold a stock that had just gained 7.3%. In week 78 the stock it had trimmed then fell 7.4%, but the gap did not close. The trades did not produce any lasting edge.
+
+LESSON: Reduce concentration only by trimming the largest position back toward about 40%. Put the proceeds into the other stocks at once, so total exposure stays the same. Do not use sales to fund a swing into whichever stock just rose. The agent's maximum drawdown (-11.1%) was worse than buy-and-hold's (-8.3%) even though it was often partly in cash. The deepest agent losses came in weeks when the biggest holding was 40–50% and one stock fell sharply.
+EVIDENCE:
+Week 39 | Day 220 | SELL STOCK_C 202, BUY STOCK_B 81 | agent value $108,338 | buy & hold $120,150 | gap -9.8% | largest position 51% | week: STOCK_A -5.0%, STOCK_B -2.0%, STOCK_C -8.0%
+Week 42 | Day 235 | SELL STOCK_B 36 | agent value $102,182 | buy & hold $115,236 | gap -11.3% | largest position 40% | week: STOCK_A -7.1%, STOCK_B -4.6%, STOCK_C -2.6%
+WHY: The agent fell about 4.5% in week 39 and about 5.3% in week 42, in line with or worse than buy-and-hold. This happened with a 51% position in week 39 and with only partial investment in week 42. Selling after losses did not avoid drawdowns, and it left the agent with less of the rebound. Cutting concentration is best done by rebalancing proceeds into the other stocks, not by raising cash.
+
+<lessons>
+1. Stay almost fully invested, at about 95% or more, with cash near zero. Go lower only after several consecutive weeks of broad decline across all stocks. Idle cash in up-trending periods caused the agent to lag steadily in rising weeks.
+2. Do not rotate between stocks every week. Trade only when a position exceeds the cap, or when a stock has fallen for several weeks in a row. Do not sell a stock because it rose in one week, and do not buy a stock because it jumped in one week. Frequent switching added no return and left the agent behind.
+3. Keep the largest position at or below about 40%. If it goes above that, trim it and put the proceeds into the other stocks right away, so total exposure stays the same. Do not hold the proceeds as cash.
+</lessons>

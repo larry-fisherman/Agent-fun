@@ -91,7 +91,7 @@ Then end with the lessons only, with no evidence, inside tags:
 </lessons>
 """ 
 
-def summarize_log(path, bah, prices=None, risk: bool = False) -> str:
+def summarize_log(path, bah, prices=None, risk: bool = False, show_prices: bool = False) -> str:
     rows = load_log(path)
     lines = []
     for row in rows:
@@ -107,6 +107,15 @@ def summarize_log(path, bah, prices=None, risk: bool = False) -> str:
         line = f"Week {row['week']} | {row['date']} | {trade_text} | agent value ${value:,.0f} | buy & hold ${bah_value:,.0f} | gap {gap:+.1f}%"
         if risk:                                                  
             line += f" | largest position {largest_position_pct(row, prices):.0f}%"
+        
+        if show_prices:
+            i = prices.index.get_loc(row['date'])  
+            moves = []
+            for t in prices.columns:
+                change = (prices[t].iloc[i] / prices[t].iloc[i - 5] - 1) * 100
+                moves.append(f"{t} {change:+.1f}%")
+            line += " | week: " + ", ".join(moves)
+
         lines.append(line)
 
     start_value = rows[0]['portfolio_after']['total_value']
@@ -123,12 +132,16 @@ def summarize_log(path, bah, prices=None, risk: bool = False) -> str:
                      f"buy-and-hold {max_drawdown(bah_weekly):.1f}%")
     return '\n'.join(lines)
 
-async def review (summary: str, previous_lessons: str | None = None, risk: bool=False) -> str:
+async def review (summary: str, previous_lessons: str | None = None, risk: bool=False, show_prices: bool = False) -> str:
+    system_prompt = REVIEWER_PROMPT_RISK if risk else REVIEWER_PROMPT
+    if show_prices:
+        system_prompt += ("\n## Stock moves\n""Each row also shows each stock's % change over the 5 trading days up to that row's date.\n")
+            
     options = ClaudeAgentOptions(
         tools = [],
         model = "claude-sonnet-5-5", 
         max_turns = 1,
-        system_prompt=REVIEWER_PROMPT_RISK if risk else REVIEWER_PROMPT,  
+        system_prompt = system_prompt,        
     )
 
     prompt = f"Here is the trading agent's week-by-week record:\n\n{summary}\n\n"
@@ -153,11 +166,11 @@ async def review (summary: str, previous_lessons: str | None = None, risk: bool=
             print(f"Done: {message.subtype}") 
     return '\n'.join(texts)
     
-async def reflect(log_path: str, data_path: str, out_path: str, previous_lessons: str | None = None, risk: bool = False) -> str:
+async def reflect(log_path: str, data_path: str, out_path: str, previous_lessons: str | None = None, risk: bool = False, show_prices: bool = False) -> str:
     prices = anonymize(pd.read_csv(data_path, index_col=0, parse_dates=True))
     bah = buy_and_hold_values(prices, start_index=30)
-    summary = summarize_log(log_path, bah, prices, risk)
-    review_text = await review(summary, previous_lessons, risk)
+    summary = summarize_log(log_path, bah, prices, risk, show_prices)
+    review_text = await review(summary, previous_lessons, risk, show_prices)
     out_path = Path(out_path)
     review_path = out_path.with_name(out_path.stem + "_review.txt")
     save_lessons(review_text, review_path)

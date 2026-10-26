@@ -1,0 +1,3 @@
+1. Cap any single position at about 50–60% of the portfolio. Do not go to 75–100% in one stock, especially right after switching into it. The agent's biggest drops came while it was concentrated.
+2. Do not buy a stock just because it jumped last week, especially a jump of 8% or more, since big weekly moves often partly reverse. Avoid rotating between stocks every week without a clear reason. Steady holding beat constant switching when the agent was already behind.
+3. When well ahead of buy-and-hold, protect the lead. If a held stock falls sharply or keeps falling for several weeks, cut it decisively instead of trimming slowly. Do not add to a single stock after a large gain.

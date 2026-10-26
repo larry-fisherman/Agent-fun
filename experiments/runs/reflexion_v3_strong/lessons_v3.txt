@@ -1,0 +1,3 @@
+1. Stay almost fully invested, at about 95% or more, with cash near zero. Go lower only after several consecutive weeks of broad decline across all stocks. Idle cash in up-trending periods caused the agent to lag steadily in rising weeks.
+2. Do not rotate between stocks every week. Trade only when a position exceeds the cap, or when a stock has fallen for several weeks in a row. Do not sell a stock because it rose in one week, and do not buy a stock because it jumped in one week. Frequent switching added no return and left the agent behind.
+3. Keep the largest position at or below about 40%. If it goes above that, trim it and put the proceeds into the other stocks right away, so total exposure stays the same. Do not hold the proceeds as cash.

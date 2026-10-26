@@ -1,0 +1,35 @@
+I found three patterns that each show up several times.
+
+LESSON: Don't let one stock grow to roughly 90–100% of the portfolio. Cap the largest position at about 60–70%, and trim a concentrated winner instead of adding to it. The agent's largest drops came while it held one stock almost entirely.
+EVIDENCE:
+Week 5 | Day 50 | SELL STOCK_B 409, BUY STOCK_A 369 | agent value $102,849 | buy & hold $98,251 | gap +4.7% | largest position 100% | week: STOCK_A +2.5%, STOCK_B -2.3%, STOCK_C -3.1%
+Week 7 | Day 60 | SELL STOCK_A 300, BUY STOCK_B 292 | agent value $96,302 | buy & hold $97,884 | gap -1.6% | largest position 68% | week: STOCK_A -3.8%, STOCK_B +5.1%, STOCK_C +1.7%
+Week 87 | Day 460 | (no trades) | agent value $124,414 | buy & hold $112,364 | gap +10.7% | largest position 100% | week: STOCK_A -4.3%, STOCK_B +1.8%, STOCK_C -0.7%
+Week 88 | Day 465 | (no trades) | agent value $117,753 | buy & hold $112,159 | gap +5.0% | largest position 100% | week: STOCK_A +5.8%, STOCK_B -3.1%, STOCK_C -5.4%
+Week 39 | Day 220 | SELL STOCK_A 350, BUY STOCK_B 250 | agent value $121,073 | buy & hold $109,527 | gap +10.5% | largest position 91% | week: STOCK_A -5.0%, STOCK_B -2.0%, STOCK_C -8.0%
+Week 40 | Day 225 | SELL STOCK_B 400, BUY STOCK_A 453 | agent value $108,976 | buy & hold $106,584 | gap +2.2% | largest position 56% | week: STOCK_A +2.6%, STOCK_B -11.0%, STOCK_C +6.4%
+WHY: With a near-single-stock portfolio, one bad week took back a large part of the lead. Value fell from $125,334 to $117,753 in weeks 86–88, and from $121,073 to $108,976 in weeks 39–40. The agent's max drawdown was -21.6% against -14.5% for buy-and-hold, so it took more risk than the benchmark.
+
+LESSON: Don't reverse a position within a few weeks, such as selling a stock and buying it back, or rotating every week into the latest mover. After a sustained lead, this churn produced a steady loss against buy-and-hold. Make a switch only when there is a clear reason, and otherwise hold.
+EVIDENCE:
+Week 65 | Day 350 | SELL STOCK_C 300, SELL STOCK_A 50, BUY STOCK_B 153 | agent value $99,092 | buy & hold $104,368 | gap -5.1% | largest position 46% | week: STOCK_A -4.5%, STOCK_B +3.7%, STOCK_C -7.0%
+Week 66 | Day 355 | SELL STOCK_A 100, BUY STOCK_C 301 | agent value $97,978 | buy & hold $103,369 | gap -5.2% | largest position 46% | week: STOCK_A -1.9%, STOCK_B -0.8%, STOCK_C +1.4%
+Week 68 | Day 365 | SELL STOCK_C 238 | agent value $99,996 | buy & hold $105,717 | gap -5.4% | largest position 57% | week: STOCK_A +3.1%, STOCK_B -0.6%, STOCK_C -5.9%
+Week 69 | Day 370 | BUY STOCK_C 232 | agent value $99,824 | buy & hold $106,426 | gap -6.2% | largest position 57% | week: STOCK_A +1.9%, STOCK_B -1.4%, STOCK_C +3.2%
+Week 40 | Day 225 | SELL STOCK_B 400, BUY STOCK_A 453 | agent value $108,976 | buy & hold $106,584 | gap +2.2% | largest position 56% | week: STOCK_A +2.6%, STOCK_B -11.0%, STOCK_C +6.4%
+Week 41 | Day 230 | SELL STOCK_A 100, BUY STOCK_B 102 | agent value $110,776 | buy & hold $107,608 | gap +2.9% | largest position 57% | week: STOCK_A -0.3%, STOCK_B +4.1%, STOCK_C -3.2%
+WHY: In weeks 54–75 the agent traded almost every week and its gap went from +5.9% to -7.8%. It sold a stock and bought it back a week later, and it sold stocks after a drop (week 40, after B fell 11%). It then missed the rebound the following week, when B rose 4.1%.
+
+LESSON: Don't sell a large block of a stock right after a big one-week fall to move into last week's winner. Reassess only if the fall is a real change in trend. Otherwise keep the core holding and trim gradually, because the rebound was often missed.
+EVIDENCE:
+Week 62 | Day 335 | SELL STOCK_C 150, BUY STOCK_B 57 | agent value $102,058 | buy & hold $104,578 | gap -2.4% | largest position 47% | week: STOCK_A -2.1%, STOCK_B +1.8%, STOCK_C -4.1%
+Week 63 | Day 340 | SELL STOCK_C 300, BUY STOCK_B 108 | agent value $97,927 | buy & hold $101,912 | gap -3.9% | largest position 42% | week: STOCK_A -3.4%, STOCK_B -0.5%, STOCK_C -5.5%
+Week 58 | Day 315 | SELL STOCK_A 100, BUY STOCK_B 102 | agent value $101,719 | buy & hold $102,389 | gap -0.7% | largest position 47% | week: STOCK_A -6.2%, STOCK_B +0.9%, STOCK_C -0.6%
+Week 59 | Day 320 | SELL STOCK_C 150, BUY STOCK_A 50 | agent value $105,005 | buy & hold $105,732 | gap -0.7% | largest position 55% | week: STOCK_A +7.0%, STOCK_B +1.3%, STOCK_C -1.0%
+WHY: Selling a stock after it dropped (week 58, A -6.2%) was followed by a +7.0% rebound the next week. The agent bought only a small amount of A back, so the gap kept widening and the portfolio ended behind buy-and-hold.
+
+<lessons>
+1. Keep the largest position at about 60–70% of the portfolio at most. Never let one stock reach roughly 90–100%, and trim a winner that grows too large instead of adding to it. The largest drawdowns happened while the portfolio was concentrated in one stock.
+2. Avoid high-turnover rotation. Don't sell a stock and buy it back within a few weeks, and don't switch every week into the latest mover. Make a switch only when there is a clear reason, and otherwise hold.
+3. Don't sell a large block of a stock right after a sharp one-week drop to chase last week's winner. Rebounds were often missed. Trim gradually and keep the core holding unless the trend has clearly changed.
+</lessons>

@@ -37,14 +37,12 @@ def oracle_values(prices: pd.DataFrame, start_index: int, starting_cash: float =
             break
         day += 1
 
-    return values, switches
+    return values
 
 
 if __name__ == "__main__":
     from environment.anonymize import anonymize
     from environment.buy_and_hold import baseline
-    train = anonymize(pd.read_csv("data/synthetic/strong_train.csv", index_col=0, parse_dates=True))
-    test = anonymize(pd.read_csv("data/synthetic/strong_test.csv", index_col=0, parse_dates=True))
 
     for level in ("no_pattern", "weak", "medium", "strong"):
         path = f"data/synthetic/{level}_test.csv"

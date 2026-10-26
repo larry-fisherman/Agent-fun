@@ -141,3 +141,9 @@ Lessons vs no lessons	+42.6	       -20.8
 ## The problem is that we don't have a positive control - a determined outcome to test against. "Did it do the correct action?" The next step is to create synthetic data that has underlying patterns in the data that the agent will need to recognize.
 
 # The pattern being incorporated is a "rebound pattern" - when a stock falls more than 4% in one week, it gets an extra boost the next week. This is a good choice because it explicitly goes against the trading patterns of the agent before. It would often sell after a sharp weekly drop.
+
+# the pattern is confirmed in the synthetic data based on the following results:
+no_pattern: oracle -22.4%  buy-and-hold -26.7%  edge +4.3
+      weak: oracle -1.7%   buy-and-hold -21.1%  edge +19.4
+    medium: oracle +45.7%  buy-and-hold -10.8%  edge +56.5
+    strong: oracle +221.4% buy-and-hold +15.6%  edge +205.8
