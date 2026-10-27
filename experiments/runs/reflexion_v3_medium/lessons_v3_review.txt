@@ -1,0 +1,30 @@
+Review of the three prior lessons:
+1. Hold through ordinary dips: keep. Long no-trade stretches (weeks 21–29) grew the gap from +13.5% to +22.2%.
+2. Cut the weakest stock and cap concentration: revise. Concentration stayed at 55–65%, and the max drawdown (-14.9%) was slightly worse than buy-and-hold's (-14.5%). The agent also kept rotating into whichever stock had just risen.
+3. Avoid repeated small switches once ahead: keep. The gap shrank during the rotation-heavy stretches.
+
+LESSON: Treat long stretches without trades as the default. Trade only when a holding has fallen for several weeks in a row or a position limit is breached, not because another stock had a good week.
+EVIDENCE:
+Week 21 | Day 130 | (no trades) | agent value $107,917 | buy & hold $95,046 | gap +13.5% | largest position 55% | week: STOCK_A -0.1%, STOCK_B +2.3%, STOCK_C +2.1%
+Week 29 | Day 170 | (no trades) | agent value $130,902 | buy & hold $107,133 | gap +22.2% | largest position 57% | week: STOCK_A +2.3%, STOCK_B +1.5%, STOCK_C -7.5%
+WHY: Eight straight no-trade weeks lifted the gap from +13.5% to +22.2%. Active rotation did not add comparable gains.
+
+LESSON: Don't switch the whole position to the stock that just rose. After a big weekly jump, the next week often reverses, so rotating into it tends to buy the top. Add to a stock only gradually.
+EVIDENCE:
+Week 30 | Day 175 | SELL STOCK_A 150, BUY STOCK_C 289, BUY STOCK_C 288 | agent value $128,827 | buy & hold $107,288 | gap +20.1% | largest position 59% | week: STOCK_A -6.4%, STOCK_B +2.1%, STOCK_C +10.2%
+Week 35 | Day 200 | SELL STOCK_C 417, BUY STOCK_A 170 | agent value $124,106 | buy & hold $106,956 | gap +16.0% | largest position 64% | week: STOCK_A -1.1%, STOCK_B -1.7%, STOCK_C -13.2%
+Week 40 | Day 225 | SELL STOCK_B 200, BUY STOCK_C 466, BUY STOCK_C 465 | agent value $123,051 | buy & hold $106,584 | gap +15.5% | largest position 58% | week: STOCK_A +2.6%, STOCK_B -11.0%, STOCK_C +6.4%
+WHY: Large buys into a stock after a +10% week were followed by a -13.2% drop for that stock. The gap fell from +22.2% to +14.8% in the following weeks.
+
+LESSON: Keep the largest position under about 50% and don't add to a position above 55%. Drawdown risk came from the weeks when one stock held 60% or more.
+EVIDENCE:
+Week 42 | Day 235 | (no trades) | agent value $115,823 | buy & hold $101,885 | gap +13.7% | largest position 57% | week: STOCK_A -7.1%, STOCK_B -4.6%, STOCK_C -2.6%
+Week 92 | Day 485 | SELL STOCK_C 425, BUY STOCK_A 184, BUY STOCK_A 183 | agent value $126,938 | buy & hold $109,629 | gap +15.8% | largest position 64% | week: STOCK_A +2.8%, STOCK_B -3.1%, STOCK_C -6.3%
+WHY: The agent's drawdown ended slightly worse than buy-and-hold's even though it led on return. The 60%+ concentration weeks are where the large losses came from.
+
+<lessons>
+1. Treat long stretches without trades as the default. Trade only when a holding has fallen for several weeks in a row or a position limit is breached, not because another stock had a good week.
+2. Don't move the whole position into the stock that just had a big weekly jump. Add to a stock gradually, because sharp rises often reverse.
+3. Keep the largest position under about 50% and don't add to a position above 55%. Trim before adding elsewhere, so the maximum drawdown stays no worse than buy-and-hold's.
+4. Once well ahead of buy-and-hold, avoid repeated small switches between stocks. Frequent rotations did not add to the lead.
+</lessons>

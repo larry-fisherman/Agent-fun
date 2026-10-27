@@ -1,0 +1,4 @@
+1. Treat long stretches without trades as the default. Trade only when a holding has fallen for several weeks in a row or a position limit is breached, not because another stock had a good week.
+2. Don't move the whole position into the stock that just had a big weekly jump. Add to a stock gradually, because sharp rises often reverse.
+3. Keep the largest position under about 50% and don't add to a position above 55%. Trim before adding elsewhere, so the maximum drawdown stays no worse than buy-and-hold's.
+4. Once well ahead of buy-and-hold, avoid repeated small switches between stocks. Frequent rotations did not add to the lead.
