@@ -1,0 +1,35 @@
+Reviewing the record: the agent finished +7.7% against -2.4% for buy-and-hold. Its max drawdown was -13.4% against -17.6%, so it beat buy-and-hold on both return and risk. The gap widened mostly in the first 15 weeks and then stayed roughly flat between +11% and +22%.
+
+**Assessment of current lessons**
+- Lesson 1 (cap concentration): Followed. The largest position peaked around 55%, and drawdown stayed below buy-and-hold's. Keep it.
+- Lesson 2 (don't chase spikes): Only partly testable. The agent often added to a stock after a strong week, and several of those adds worked. Revise it.
+- Lesson 3 (partial adjustments): Followed, with mostly small trades. Keep it.
+- Lesson 4 (cut exposure when several stocks fall together): Followed, and it helped. The agent trimmed during the declines, and the gap widened in those stretches. Keep it.
+- Lesson 5 (redeploy gradually): Followed with partial buys. Keep it, though the table shows little direct evidence on rebounds.
+
+LESSON: When two or more stocks decline in the same week, sell some of the weakest or most-extended holdings instead of rotating into another falling stock. Do this in steps across several weeks.
+EVIDENCE:
+Week 10 | Day 75 | SELL STOCK_A 76 | agent value $102,092 | buy & hold $96,561 | gap +5.7% | largest position 45% | week: STOCK_A -1.0%, STOCK_B -2.0%, STOCK_C -2.3%
+Week 11 | Day 80 | SELL STOCK_A 70 | agent value $102,096 | buy & hold $93,781 | gap +8.9% | largest position 37% | week: STOCK_A +0.0%, STOCK_B -4.1%, STOCK_C -5.3%
+Week 17 | Day 110 | SELL STOCK_A 100, SELL STOCK_B 75 | agent value $102,249 | buy & hold $90,107 | gap +13.5% | largest position 39% | week: STOCK_A -4.1%, STOCK_B -3.6%, STOCK_C -0.6%
+WHY: In each case the agent reduced exposure while the market fell. Its value held flat while buy-and-hold dropped, and the gap widened by about 3 to 8 points across these stretches.
+
+LESSON: Keep the largest position at or below about 55% and trim it in steps once it passes about 50%. Leave smaller positions in the other stocks so one stock's drop doesn't dominate.
+EVIDENCE:
+Week 35 | Day 200 | SELL STOCK_C 100 | agent value $116,958 | buy & hold $103,262 | gap +13.3% | largest position 53% | week: STOCK_A -1.1%, STOCK_B -1.7%, STOCK_C -13.2%
+Week 40 | Day 225 | SELL STOCK_B 180 | agent value $117,466 | buy & hold $101,928 | gap +15.2% | largest position 47% | week: STOCK_A +1.4%, STOCK_B -11.0%, STOCK_C +5.1%
+WHY: Single-stock drops of 11% to 13% hit the agent while it held a large but capped position. The agent lost only about 2.5% and 2.7% of its value in those weeks, while buy-and-hold fell about 4.5% and 3.5%. The cap and trims limited the damage.
+
+LESSON: Don't judge a stock by one week's jump. It is fine to add in steps to a stock that has been rising over several weeks, but avoid moving a large share of the portfolio into a stock because of a single spike.
+EVIDENCE:
+Week 24 | Day 145 | BUY STOCK_A 50 | agent value $107,796 | buy & hold $96,068 | gap +12.2% | largest position 45% | week: STOCK_A +5.7%, STOCK_B +2.3%, STOCK_C -1.3%
+Week 26 | Day 155 | SELL STOCK_A 40, BUY STOCK_B 42 | agent value $113,304 | buy & hold $101,002 | gap +12.2% | largest position 51% | week: STOCK_A +5.6%, STOCK_B +5.1%, STOCK_C -0.5%
+WHY: Gradual adds to a stock with a multi-week uptrend kept pace with buy-and-hold's gains without raising the gap risk. The agent did not make large single-week swaps in these cases.
+
+<lessons>
+1. Keep any single stock at or below about 55% of the portfolio. Start trimming in steps once a position passes about 50%.
+2. When two or more stocks fall in the same week, cut exposure in steps. Do this instead of rotating into another falling stock.
+3. Add to a stock in steps when it has risen over several weeks. Don't move a large share of the portfolio into a stock because of one week's jump.
+4. Prefer partial adjustments to whole-position swaps, and keep a balanced mix unless the evidence is strong.
+5. After cutting exposure, redeploy gradually over a few weeks once the stocks stabilize, so a sharp rebound isn't missed.
+</lessons>

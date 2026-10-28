@@ -1,0 +1,5 @@
+1. Keep any single stock under about 60% of the portfolio, and trim back toward 45% when a position drifts above 55%.
+2. Don't move a full position into the stock that just spiked in the past week. Base allocations on a multi-week trend.
+3. Prefer partial adjustments to whole-position swaps. Change weights gradually and keep a balanced mix unless the evidence is strong.
+4. When several stocks fall together for consecutive weeks, cut total exposure in steps toward cash instead of rotating among falling stocks.
+5. After moving to cash or low exposure, redeploy gradually over a few weeks once the stocks stabilize, so a sharp rebound isn't missed.

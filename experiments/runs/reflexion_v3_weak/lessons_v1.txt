@@ -1,0 +1,4 @@
+1. Cap any single stock at about 60% of the portfolio. Don't go to 85–100% in one name after a rotation, because the largest losses came while concentrated.
+2. Don't move a full position into the stock that just spiked in the past week. These stocks often stall or fall the next week. Base allocations on a longer trend, not last week's move.
+3. When the agent is behind buy-and-hold, stop swapping whole positions every week. Keep a balanced mix and change weights only on strong evidence, since constant rotation steadily lost relative performance.
+4. When all stocks are falling for several consecutive weeks, reduce total exposure toward cash instead of rotating between falling stocks, to limit drawdown.

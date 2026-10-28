@@ -1,0 +1,33 @@
+Review of the existing lessons:
+1. Cap at ~60%: Followed (the largest position peaked at 60–62%). Drawdown was slightly better than buy-and-hold's, so keep it.
+2. Don't chase spikes: Evidence is mixed. Keep it, but base it on a longer trend.
+3. Stop whole-position swaps when behind: The agent was almost always ahead, and it kept trimming and adding in partial amounts. The gap was highest with partial trades. Revise it.
+4. Reduce exposure when all stocks fall: This helped. Cutting to cash lost less than buy-and-hold in the declines. Keep it.
+
+LESSON: Cut exposure in steps when several stocks fall together. Sell part of each weak holding, and don't wait for a full exit. Rebuy only after a stock stabilizes.
+EVIDENCE:
+Week 46 | Day 255 | SELL STOCK_B 13, BUY STOCK_A 125 | agent value $111,601 | buy & hold $97,302 | gap +14.7% | largest position 56% | week: STOCK_A -0.4%, STOCK_B -4.3%, STOCK_C -0.4%
+Week 47 | Day 260 | SELL STOCK_A 100 | agent value $110,166 | buy & hold $93,789 | gap +17.5% | largest position 44% | week: STOCK_A -2.3%, STOCK_B -5.6%, STOCK_C -2.1%
+Week 51 | Day 280 | SELL STOCK_A 485 | agent value $107,099 | buy & hold $90,719 | gap +18.1% | largest position 0% | week: STOCK_A -2.5%, STOCK_B -2.5%, STOCK_C +4.1%
+WHY: The agent's biggest gaps (+17% to +18%) came when it cut exposure into broad declines. Buy-and-hold fell from about $97k to about $91k, while the agent lost much less.
+
+LESSON: Keep the 60% single-stock cap, and trim back toward about 45% when a position drifts above 55%. The agent's drawdown was no worse than buy-and-hold's only because it stayed under the cap.
+EVIDENCE:
+Week 24 | Day 145 | BUY STOCK_B 46 | agent value $106,040 | buy & hold $96,068 | gap +10.4% | largest position 62% | week: STOCK_A +5.7%, STOCK_B +2.3%, STOCK_C -1.3%
+Week 87 | Day 460 | SELL STOCK_A 116, BUY STOCK_C 40 | agent value $111,370 | buy & hold $99,548 | gap +11.9% | largest position 60% | week: STOCK_A -4.3%, STOCK_B +1.8%, STOCK_C -0.7%
+Week 88 | Day 465 | SELL STOCK_C 200 | agent value $107,795 | buy & hold $99,016 | gap +8.9% | largest position 48% | week: STOCK_A +4.5%, STOCK_B -3.1%, STOCK_C -5.4%
+WHY: Drops while the agent held 60% or more in one stock, like the $3.6k loss in week 88, were larger than the typical weekly loss. Trimming back down limited them.
+
+LESSON: After moving to cash or a low-exposure position, redeploy gradually over a few weeks. Don't put everything back in one step.
+EVIDENCE:
+Week 52 | Day 285 | (no trades) | agent value $107,099 | buy & hold $95,306 | gap +12.4% | largest position 40% | week: STOCK_A -0.9%, STOCK_B +1.8%, STOCK_C +2.3%
+Week 53 | Day 290 | BUY STOCK_A 344, BUY STOCK_C 771, BUY STOCK_B 247 | agent value $107,099 | buy & hold $95,306 | gap +12.4% | largest position 40% | week: STOCK_A +6.2%, STOCK_B -0.1%, STOCK_C +10.0%
+WHY: The agent sat in cash through a rebound (week 53: +6.2% and +10.0%), and the gap fell from +17.2% to +12.4%. A staged re-entry would give up less of a rebound.
+
+<lessons>
+1. Keep any single stock under about 60% of the portfolio, and trim back toward 45% when a position drifts above 55%.
+2. Don't move a full position into the stock that just spiked in the past week. Base allocations on a multi-week trend.
+3. Prefer partial adjustments to whole-position swaps. Change weights gradually and keep a balanced mix unless the evidence is strong.
+4. When several stocks fall together for consecutive weeks, cut total exposure in steps toward cash instead of rotating among falling stocks.
+5. After moving to cash or low exposure, redeploy gradually over a few weeks once the stocks stabilize, so a sharp rebound isn't missed.
+</lessons>

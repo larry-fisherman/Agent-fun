@@ -1,0 +1,39 @@
+LESSON: Never let one stock go above about 60% of the portfolio, and don't move into a single stock at 85–100% after a rotation. The large drops came while the portfolio was almost entirely in one name.
+EVIDENCE:
+Week 71 | Day 380 | SELL STOCK_B 269, BUY STOCK_A 224 | agent value $93,901 | buy & hold $100,188 | gap -6.3% | largest position 100% | week: STOCK_A +2.1%, STOCK_B -0.5%, STOCK_C +2.2%
+Week 72 | Day 385 | SELL STOCK_A 100, BUY STOCK_C 335 | agent value $91,073 | buy & hold $98,668 | gap -7.7% | largest position 85% | week: STOCK_A -3.0%, STOCK_B -2.7%, STOCK_C +7.2%
+Week 49 | Day 270 | SELL STOCK_B 594, BUY STOCK_A 515 | agent value $100,404 | buy & hold $93,661 | gap +7.2% | largest position 100% | week: STOCK_A +0.6%, STOCK_B -4.4%, STOCK_C -3.5%
+Week 50 | Day 275 | SELL STOCK_A 100, BUY STOCK_C 294 | agent value $96,475 | buy & hold $92,061 | gap +4.8% | largest position 87% | week: STOCK_A -3.9%, STOCK_B -0.1%, STOCK_C +0.5%
+WHY: Each time the agent went to 85–100% in one stock, the next week's loss was larger than the benchmark's. The agent's max drawdown was -32.0% against -17.6% for buy-and-hold, so concentration is a clear driver of excess risk.
+
+LESSON: Don't switch the whole position into the stock that just jumped. After a big one-week gain, that stock has often stalled or fallen the following week. Weigh holdings by longer-term trend, not by last week's move.
+EVIDENCE:
+Week 72 | Day 385 | SELL STOCK_A 100, BUY STOCK_C 335 | agent value $91,073 | buy & hold $98,668 | gap -7.7% | largest position 85% | week: STOCK_A -3.0%, STOCK_B -2.7%, STOCK_C +7.2%
+Week 73 | Day 390 | (no trades) | agent value $90,570 | buy & hold $98,277 | gap -7.8% | largest position 85% | week: STOCK_A -0.2%, STOCK_B +0.2%, STOCK_C -2.7%
+Week 74 | Day 395 | SELL STOCK_C 150, BUY STOCK_A 42 | agent value $89,170 | buy & hold $98,412 | gap -9.4% | largest position 92% | week: STOCK_A -1.2%, STOCK_B +3.0%, STOCK_C -3.4%
+Week 64 | Day 345 | BUY STOCK_A 450 | agent value $93,059 | buy & hold $96,643 | gap -3.7% | largest position 64% | week: STOCK_A +9.4%, STOCK_B -0.3%, STOCK_C +0.3%
+Week 65 | Day 350 | SELL STOCK_A 100 | agent value $91,584 | buy & hold $94,994 | gap -3.6% | largest position 48% | week: STOCK_A -4.5%, STOCK_B +3.7%, STOCK_C -7.0%
+WHY: Buying after a spike (+7.2% and +9.4%) was followed by a decline in the same stock the next week. That repeated pattern turned a large lead into a deficit.
+
+LESSON: When the agent is behind buy-and-hold and rotating every week, stop making full-position swaps. Hold a balanced mix and only change weights when the evidence is strong. Constant rotation with no edge led to a steady loss of relative performance.
+EVIDENCE:
+Week 66 | Day 355 | SELL STOCK_A 250, BUY STOCK_C 1000 | agent value $89,924 | buy & hold $93,378 | gap -3.7% | largest position 43% | week: STOCK_A -3.1%, STOCK_B -0.8%, STOCK_C +0.1%
+Week 68 | Day 365 | SELL STOCK_C 900, BUY STOCK_A 258 | agent value $89,338 | buy & hold $95,537 | gap -6.5% | largest position 51% | week: STOCK_A +3.1%, STOCK_B -0.6%, STOCK_C -5.9%
+Week 75 | Day 400 | SELL STOCK_A 100, BUY STOCK_B 109 | agent value $87,133 | buy & hold $98,123 | gap -11.2% | largest position 77% | week: STOCK_A -2.5%, STOCK_B +2.0%, STOCK_C +0.2%
+Week 76 | Day 405 | SELL STOCK_A 100, BUY STOCK_B 55 | agent value $84,597 | buy & hold $95,059 | gap -11.0% | largest position 62% | week: STOCK_A -2.9%, STOCK_B -4.1%, STOCK_C -0.9%
+WHY: Rotating nearly every week, the agent's gap moved from -3.7% to about -11% while the benchmark was roughly flat. The trades repeatedly sold one stock and bought another just before the new one fell.
+
+LESSON: When the whole market is falling (all three stocks down several weeks in a row), cut total exposure toward cash. Don't just move from one falling stock to another. Staying fully invested through broad declines caused most of the drawdown.
+EVIDENCE:
+Week 46 | Day 255 | SELL STOCK_B 100, BUY STOCK_A 107, BUY STOCK_A 106 | agent value $107,176 | buy & hold $97,302 | gap +10.1% | largest position 55% | week: STOCK_A -0.4%, STOCK_B -4.3%, STOCK_C -0.4%
+Week 47 | Day 260 | SELL STOCK_B 503 | agent value $102,765 | buy & hold $93,789 | gap +9.6% | largest position 46% | week: STOCK_A -2.3%, STOCK_B -5.6%, STOCK_C -2.1%
+Week 50 | Day 275 | SELL STOCK_A 100, BUY STOCK_C 294 | agent value $96,475 | buy & hold $92,061 | gap +4.8% | largest position 87% | week: STOCK_A -3.9%, STOCK_B -0.1%, STOCK_C +0.5%
+Week 51 | Day 280 | SELL STOCK_A 100, BUY STOCK_C 273 | agent value $94,858 | buy & hold $90,719 | gap +4.6% | largest position 74% | week: STOCK_A -2.5%, STOCK_B -2.5%, STOCK_C +4.1%
+WHY: The agent stayed fully invested through a long decline. It kept a +12% lead only briefly. Most of that lead was given back over the following weeks, as the lead fell from +10.1% to +4.6% while the portfolio kept falling.
+
+<lessons>
+1. Cap any single stock at about 60% of the portfolio. Don't go to 85–100% in one name after a rotation, because the largest losses came while concentrated.
+2. Don't move a full position into the stock that just spiked in the past week. These stocks often stall or fall the next week. Base allocations on a longer trend, not last week's move.
+3. When the agent is behind buy-and-hold, stop swapping whole positions every week. Keep a balanced mix and change weights only on strong evidence, since constant rotation steadily lost relative performance.
+4. When all stocks are falling for several consecutive weeks, reduce total exposure toward cash instead of rotating between falling stocks, to limit drawdown.
+</lessons>
