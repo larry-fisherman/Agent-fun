@@ -147,3 +147,27 @@ no_pattern: oracle -22.4%  buy-and-hold -26.7%  edge +4.3
       weak: oracle -1.7%   buy-and-hold -21.1%  edge +19.4
     medium: oracle +45.7%  buy-and-hold -10.8%  edge +56.5
     strong: oracle +221.4% buy-and-hold +15.6%  edge +205.8
+
+## Well... reflexion did not discover the planted pattern, even at full strength. The lessons did improve but for reasons that are unrelated to the pattern.
+
+## "share of the gap closed" score from your experiments: (lessons − control) / (oracle − control)
+
+    strong	medium	weak	no_pattern
+    13%	    25%	     55%	116%
+
+## That says reflection did best where the pattern was weakest, and more than "perfect" where there was no pattern at all.
+
+## The pattern is explained from two general reasons:
+    1. with no lessons, the agent traded ~175 times and kept ~70% in one stock. This caused it to lose far more than the buy and hold strategy at every level. the lessons stopped that.
+    2. In the medium, weak, and no pattern, the lessons told the agent to sell stocks that fall for several weeks and "keep the proceeds in cash". The synthetic seeds happen to produce falling markets so holding money in cash just happen to beat a buy and hold strategy. Not really a strategy but luck with the market.
+
+## The closes that the reviewer agent got was in lesson v2 from the strong run. It said, "Do not sell after one drop… selling a dip was repeatedly followed by a reversal." So it understood the rebound, but didn't capitalize on buying the dip.
+
+## Three possible reasons for missing: 
+    1. Exploiting a rebound means putting more money into the stock that just dropped. The risk aware lessons cap each position at about 40%, which rules that out. The reviewer did notice rebounds and still chose the cap.
+
+    2. The reviewer only sees the results of what the agent did. The agent never bought dips, so there were almost no examples of the reward for doing it. RL methods deal with this explicitly through exploration. 
+
+    3. Finding "a >4% drop is followed by about +5% next week" means comparing about 285 stock-weeks across rows. LLMs reading a text table are good at spotting a few striking examples, like the ones it quoted, and bad at statistics. The data was there, but the reviewer had no way to measure it.
+
+## Reflection reliably improves an agent by removing harmful default behaviour, but it didn't discover a strong, profitable pattern that was planted in the data. Return-based scores alone would have hidden that, and behaviour-level graders exposed it.
