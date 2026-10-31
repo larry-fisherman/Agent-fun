@@ -1,0 +1,39 @@
+Evaluation of prior lessons: the agent was well ahead of buy-and-hold throughout (+6.2% vs -10.4%), and its max drawdown (-18.4%) was better than buy-and-hold's (-20.2%).
+
+- **Lesson 1 (position cap):** Partly helped. Concentration spikes above 60% were short, but the sharpest agent drops came while it was concentrated. Revise it to a tighter cap.
+- **Lesson 2 (avoid same-week switches):** The agent often ignored it. Many weeks sold one stock and bought another, and the evidence doesn't show this helped. Keep it, but make it firmer.
+- **Lesson 3 (sell decliners in steps):** Clearly helped. Selling a falling holding in steps drove most of the gap growth early on and in the late stretch. Keep it.
+- **Lesson 4 (hold when ahead):** Helped. The gap grew mostly in no-trade weeks. Keep it.
+
+LESSON: Sell a holding that keeps falling in steps over successive weeks, and don't rebuy it while it is still declining. Put the proceeds into the holdings that are holding up, or keep them in cash.
+EVIDENCE:
+Week 4 | Day 45 | SELL STOCK_C 45 | agent value $101,757 | buy & hold $99,070 | gap +2.7% | largest position 42% | week: STOCK_A +0.1%, STOCK_B +2.4%, STOCK_C -5.7%
+Week 5 | Day 50 | SELL STOCK_C 25, BUY STOCK_A 170 | agent value $101,753 | buy & hold $97,671 | gap +4.2% | largest position 61% | week: STOCK_A +2.5%, STOCK_B -2.3%, STOCK_C -5.0%
+Week 14 | Day 95 | SELL STOCK_C 100 | agent value $101,059 | buy & hold $90,756 | gap +11.4% | largest position 62% | week: STOCK_A +5.7%, STOCK_B +1.5%, STOCK_C -9.0%
+WHY: Cutting the weak stock in stages while it fell let the gap grow from +0.6% to +11.4% by Week 14 without a large drawdown.
+
+LESSON: When you are well ahead of buy-and-hold and there is no clear multi-week signal, make no trades. Most of the gap growth came in weeks with no trades.
+EVIDENCE:
+Week 26 | Day 155 | (no trades) | agent value $116,242 | buy & hold $99,346 | gap +17.0% | largest position 55% | week: STOCK_A +5.6%, STOCK_B +5.1%, STOCK_C -0.5%
+Week 28 | Day 165 | (no trades) | agent value $122,041 | buy & hold $102,942 | gap +18.6% | largest position 57% | week: STOCK_A +2.3%, STOCK_B +5.3%, STOCK_C +1.8%
+Week 53 | Day 290 | (no trades) | agent value $115,859 | buy & hold $90,964 | gap +27.4% | largest position 41% | week: STOCK_A +6.2%, STOCK_B -0.1%, STOCK_C +10.0%
+WHY: Holding a spread-out portfolio through up weeks added to the lead, so frequent trading isn't needed.
+
+LESSON: Don't concentrate the portfolio by buying more of a stock after a single strong week or after selling another holding in the same week. Keep the largest position under about 50%. Do not let one stock's single-week jump push it toward 75%.
+EVIDENCE:
+Week 64 | Day 345 | SELL STOCK_C 341, BUY STOCK_A 660 | agent value $109,847 | buy & hold $91,253 | gap +20.4% | largest position 77% | week: STOCK_A +9.4%, STOCK_B -0.3%, STOCK_C -0.4%
+Week 65 | Day 350 | SELL STOCK_A 151, BUY STOCK_B 172 | agent value $106,972 | buy & hold $89,653 | gap +19.3% | largest position 58% | week: STOCK_A -4.5%, STOCK_B +3.7%, STOCK_C -7.0%
+Week 50 | Day 275 | BUY STOCK_C 768 | agent value $109,537 | buy & hold $87,877 | gap +24.6% | largest position 51% | week: STOCK_A -3.9%, STOCK_B -0.8%, STOCK_C +0.5%
+WHY: A switch into a stock that had just jumped was followed by a drop the next week. The gap shrank and the agent gave back value while concentrated.
+
+LESSON: Don't fully exit a diversified core. Selling nearly all of a stock leaves the portfolio with little exposure and little chance to keep up in a rebound. Reduce in steps and keep a minimum holding in each name unless the decline is sustained.
+EVIDENCE:
+Week 92 | Day 485 | SELL STOCK_C 430 | agent value $106,047 | buy & hold $89,315 | gap +18.7% | largest position 5% | week: STOCK_A +2.8%, STOCK_B -3.1%, STOCK_C -6.3%
+Week 95 | Day 500 | (no trades) | agent value $106,158 | buy & hold $85,805 | gap +23.7% | largest position 5% | week: STOCK_A -4.7%, STOCK_B -0.1%, STOCK_C -2.4%
+WHY: Moving almost fully to cash protected value in a falling market, so this is only a partial concern. The record doesn't show whether it would hurt in a rising one. I'm not including this as a lesson, because the evidence is too thin.
+
+<lessons>
+1. When a holding falls for several weeks in a row, sell it in steps and don't rebuy it while it is still declining. Put the proceeds into holdings that are holding up, or keep them in cash.
+2. When you are well ahead of buy-and-hold and there is no clear multi-week signal, make no trades. Most of the lead was built while holding.
+3. Keep the largest position under about 50%. Don't build concentration by buying a stock after one strong week or by selling one holding and buying another in the same week. A single-week jump should not push any stock toward 75%.
+</lessons>

@@ -1,0 +1,3 @@
+1. When a holding falls for several weeks in a row, sell it in steps and don't rebuy it while it is still declining. Put the proceeds into holdings that are holding up, or keep them in cash.
+2. When you are well ahead of buy-and-hold and there is no clear multi-week signal, make no trades. Most of the lead was built while holding.
+3. Keep the largest position under about 50%. Don't build concentration by buying a stock after one strong week or by selling one holding and buying another in the same week. A single-week jump should not push any stock toward 75%.

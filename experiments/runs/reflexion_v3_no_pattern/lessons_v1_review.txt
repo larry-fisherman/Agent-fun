@@ -1,0 +1,30 @@
+I found three patterns that recur. In each one the agent's frequent rotation lost to simply holding. The agent also ran far more concentration risk than buy-and-hold.
+
+LESSON: Don't sell a stock that is working to buy another one after a single strong week. Chasing last week's winner and dumping last week's laggard repeatedly gave back gains. Keep the core position unless the stock has shown sustained weakness over several weeks.
+EVIDENCE:
+Week 63 | Day 340 | SELL STOCK_C 265, SELL STOCK_A 88, BUY STOCK_B 200 | agent value $84,409 | buy & hold $87,760 | gap -3.8% | largest position 72% | week: STOCK_A -3.4%, STOCK_B -0.5%, STOCK_C -7.4%
+Week 64 | Day 345 | BUY STOCK_A 186 | agent value $84,226 | buy & hold $91,253 | gap -7.7% | largest position 72% | week: STOCK_A +9.4%, STOCK_B -0.3%, STOCK_C -0.4%
+Week 72 | Day 385 | SELL STOCK_B 100, BUY STOCK_C 288 | agent value $86,128 | buy & hold $92,652 | gap -7.0% | largest position 68% | week: STOCK_A -3.0%, STOCK_B -2.7%, STOCK_C +7.2%
+Week 74 | Day 395 | SELL STOCK_B 81, BUY STOCK_C 253 | agent value $84,854 | buy & hold $92,409 | gap -8.2% | largest position 68% | week: STOCK_A -1.2%, STOCK_B +3.0%, STOCK_C -3.4%
+WHY: In weeks 58 to 76 the agent switched positions nearly every week. The gap fell from about +0.5% to -9.6%. Each switch moved the agent out of one stock and into another that had just moved, and the next week the moves often reversed. For example, the agent sold stock A, then stock A rose 9.4% the following week.
+
+LESSON: Don't go to 100% in one stock, and don't add to a concentrated position after it has already risen. The deepest drawdown came while the agent was nearly all in one name. Cap any single position at about 60 to 70% of the portfolio.
+EVIDENCE:
+Week 86 | Day 455 | SELL STOCK_B 174, BUY STOCK_C 330 | agent value $123,217 | buy & hold $93,580 | gap +31.7% | largest position 100%
+Week 88 | Day 465 | SELL STOCK_B 180, BUY STOCK_C 359 | agent value $116,198 | buy & hold $91,702 | gap +26.7% | largest position 100%
+Week 75 | Day 400 | SELL STOCK_A 511, BUY STOCK_C 1822 | agent value $83,247 | buy & hold $92,109 | gap -9.6% | largest position 100%
+Week 35 | Day 200 | SELL STOCK_C 500 | agent value $106,499 | buy & hold $100,902 | gap +5.5% | largest position 44% | week: STOCK_A -1.1%, STOCK_B -1.7%, STOCK_C -13.2%
+WHY: The agent's max drawdown was -31.5%, against -20.2% for buy-and-hold, which breaks the risk goal. It was at 100% in one stock when the portfolio fell from $123,217 to $116,198. It was also at 100% at its low of $83,247. A single stock can drop 10% or more in one week, as stock C did in week 35, so full concentration is dangerous.
+
+LESSON: When the whole market is falling and the agent is already ahead of buy-and-hold, don't keep making trades. Hold, or reduce exposure. The periods where the agent held steady through the declines were the ones where it widened its lead.
+EVIDENCE:
+Week 13 | Day 90 | (no trades) | agent value $95,354 | buy & hold $90,504 | gap +5.4% | largest position 100% | week: STOCK_A +1.0%, STOCK_B -4.8%, STOCK_C -3.9%
+Week 14 | Day 95 | (no trades) | agent value $100,789 | buy & hold $90,756 | gap +11.1% | largest position 100% | week: STOCK_A +5.7%, STOCK_B +1.5%, STOCK_C -9.0%
+Week 80 | Day 425 | (no trades) | agent value $101,480 | buy & hold $91,220 | gap +11.2% | largest position 100% | week: STOCK_A +1.0%, STOCK_B +1.9%, STOCK_C +2.3%
+WHY: The agent's big gains came from holding the best stock for several weeks with no trades. Weeks 10 to 14 and weeks 78 to 86 are the examples. Most of the gap it built was then given back through weekly rotation. Holding is good when the position is working, but it needs the concentration cap from the previous lesson. Otherwise the agent takes on drawdown risk to earn the same gain.
+
+<lessons>
+1. Don't sell a working position to buy whichever stock just had a strong week. Weekly switching after one-week moves repeatedly reversed and cost the agent its lead. Change a core holding only after several weeks of sustained weakness.
+2. Cap any single position at about 60 to 70% of the portfolio, and don't go to 100% in one stock. The largest drawdowns happened at full concentration, and one stock can fall more than 10% in a single week.
+3. Once the agent is ahead of buy-and-hold, protect the lead. Prefer holding a diversified, working portfolio over rotating every week, because most of the lead was lost through repeated switching rather than through holding.
+</lessons>

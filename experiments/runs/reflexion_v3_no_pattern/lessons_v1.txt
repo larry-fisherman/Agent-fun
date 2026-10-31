@@ -1,0 +1,3 @@
+1. Don't sell a working position to buy whichever stock just had a strong week. Weekly switching after one-week moves repeatedly reversed and cost the agent its lead. Change a core holding only after several weeks of sustained weakness.
+2. Cap any single position at about 60 to 70% of the portfolio, and don't go to 100% in one stock. The largest drawdowns happened at full concentration, and one stock can fall more than 10% in a single week.
+3. Once the agent is ahead of buy-and-hold, protect the lead. Prefer holding a diversified, working portfolio over rotating every week, because most of the lead was lost through repeated switching rather than through holding.
