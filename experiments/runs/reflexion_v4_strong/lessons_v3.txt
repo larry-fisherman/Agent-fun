@@ -1,0 +1,3 @@
+1. On the first decision, invest the whole cash balance at once, split in equal dollar amounts across all stocks. Don't sit in cash waiting for a better entry, because buy-and-hold is fully invested from day one.
+2. Check that the initial purchase gives every stock the same dollar weight. Don't overweight any stock, because that excess becomes a lasting drag if it lags.
+3. After the initial purchase, default to holding. Only make small trades that move weights back toward equal. Don't make large swaps based on last week's price move, whether selling a faller or buying a riser.

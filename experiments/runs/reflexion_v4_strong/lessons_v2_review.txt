@@ -1,0 +1,42 @@
+**Review of the existing lessons**
+- **Lesson 1 (don't sell a sharp drop to chase a jump):** Keep it, but the agent broke it. The evidence is in Lessons A and B below.
+- **Lesson 2 (avoid constant rotation, stay near equal weight):** Keep it and sharpen it. Over weeks 4–9 the agent made no trades and stayed level with buy-and-hold. The gap widened mostly in the stretches where it made repeated trades. The record shows no clear damage from trading in the early weeks. The damage comes from repeatedly building up one stock.
+- **Lesson 3 (don't sell and sit in cash):** Drop it. Every trade in the record was a sell paired with a buy, so the agent never held cash. The lesson isn't tested here and just adds noise.
+
+LESSON A: After a stock falls sharply in one week, don't sell it to buy a stock that is up or that you expect to keep rising. Weekly moves often reverse, so wait at least a week or hold the position.
+EVIDENCE:
+Week 39 | Day 220 | SELL STOCK_C 150, BUY STOCK_B 59 | agent value $118,198 | buy & hold $120,150 | gap -1.6% | week: STOCK_A -5.0%, STOCK_B -2.0%, STOCK_C -8.0%
+Week 40 | Day 225 | SELL STOCK_B 40, SELL STOCK_A 10, BUY STOCK_C 104 | agent value $116,447 | buy & hold $119,132 | gap -2.3% | week: STOCK_A +5.7%, STOCK_B -11.0%, STOCK_C +9.6%
+WHY: The agent sold C after an -8% week and bought B. The next week B fell 11% and C rose 9.6%. The gap widened from -1.6% to -2.3%.
+
+LESSON B: Don't buy a stock right after it jumps in one week by selling a laggard. That means buying the spike. Large jumps often fade, and the swap locks in the loss.
+EVIDENCE:
+Week 43 | Day 240 | SELL STOCK_C 100, BUY STOCK_B 39 | agent value $117,990 | buy & hold $121,245 | gap -2.7% | week: STOCK_A +4.1%, STOCK_B +10.2%, STOCK_C -3.3%
+Week 45 | Day 250 | SELL STOCK_C 30, BUY STOCK_A 12 | agent value $118,363 | buy & hold $121,913 | gap -2.9% | week: STOCK_A +2.4%, STOCK_B -3.9%, STOCK_C -2.2%
+Week 64 | Day 345 | SELL STOCK_C 100, BUY STOCK_A 35 | agent value $123,873 | buy & hold $129,559 | gap -4.4% | week: STOCK_A +9.4%, STOCK_B -0.3%, STOCK_C -0.4%
+Week 65 | Day 350 | (no trades) | agent value $121,158 | buy & hold $127,669 | gap -5.1% | week: STOCK_A -4.5%, STOCK_B +3.7%, STOCK_C -7.0%
+WHY: In week 43 the agent bought B after a 10% jump. In week 64 it bought A after a 9.4% jump, and A fell 4.5% the next week. The gap widened after each of these rotations (-2.7% to -2.9% after week 43, and -4.4% to -5.1% after week 64).
+
+LESSON C: Don't repeatedly pile into the same stock by selling the others in successive weeks. A drift far from equal weight made the agent's result depend on one stock. In this record that stock lagged for long stretches. If you rebalance, move back toward equal weight instead of away from it.
+EVIDENCE:
+Week 47 | Day 260 | SELL STOCK_B 80, BUY STOCK_C 200 | agent value $113,571 | buy & hold $117,130 | gap -3.0% | week: STOCK_A -2.3%, STOCK_B -1.5%, STOCK_C -2.1%
+Week 48 | Day 265 | SELL STOCK_A 50, BUY STOCK_C 130 | agent value $115,308 | buy & hold $119,122 | gap -3.2% | week: STOCK_A +0.9%, STOCK_B +3.1%, STOCK_C +0.4%
+Week 49 | Day 270 | (no trades) | agent value $112,494 | buy & hold $116,525 | gap -3.5% | week: STOCK_A +0.6%, STOCK_B -4.4%, STOCK_C -3.5%
+Week 66 | Day 355 | SELL STOCK_A 30, SELL STOCK_B 31, BUY STOCK_C 178 | agent value $122,591 | buy & hold $128,623 | gap -4.7% | week: STOCK_A +1.1%, STOCK_B -0.8%, STOCK_C +4.4%
+Week 68 | Day 365 | (no trades) | agent value $123,228 | buy & hold $131,455 | gap -6.3% | week: STOCK_A +3.1%, STOCK_B -0.6%, STOCK_C -5.9%
+WHY: The agent kept shifting money into C in weeks 47, 48 and 66. The gap kept widening (-3.0%, -3.2%, then -6.3% by week 68). Each time, a C decline of 3.5% to 5.9% hurt more than it would have at equal weight.
+
+LESSON D: Without a strong reason, hold. In the weeks with no trades, the gap stayed within a few tenths of a percent. The gap fell mainly in the weeks right after rotations. Treat each trade as needing a clear, lasting reason, not just last week's price move.
+EVIDENCE:
+Week 8 | Day 65 | (no trades) | agent value $98,846 | buy & hold $98,669 | gap +0.2% | week: STOCK_A +5.8%, STOCK_B -3.0%, STOCK_C -3.4%
+Week 9 | Day 70 | (no trades) | agent value $99,470 | buy & hold $99,253 | gap +0.2% | week: STOCK_A +3.3%, STOCK_B -2.9%, STOCK_C +1.3%
+Week 14 | Day 95 | SELL STOCK_C 35, BUY STOCK_B 25 | agent value $96,062 | buy & hold $96,304 | gap -0.3% | week: STOCK_A +5.7%, STOCK_B +6.7%, STOCK_C -9.0%
+Week 38 | Day 215 | (no trades) | agent value $123,844 | buy & hold $125,462 | gap -1.3% | week: STOCK_A -1.5%, STOCK_B +6.0%, STOCK_C -3.3%
+WHY: The agent was level with or ahead of buy-and-hold while it held. After the weeks 10–14 trades it fell behind, and after the weeks 36–37 rotations (not shown) the gap dropped from -0.5% to -1.3%. Selling the stock that had just dropped 9.0% (week 14) cost it the next rebound.
+
+<lessons>
+1. After a stock falls sharply in one week, don't sell it to buy a stock that is up or that you expect to keep rising. Weekly moves often reverse, so wait at least a week or hold the position.
+2. Don't buy a stock right after it jumps in one week by selling a laggard. Large jumps often fade, and the swap locks in the loss.
+3. Don't repeatedly pile into the same stock by selling the others in successive weeks. Drifting far from equal weight made results depend on one stock that lagged for long stretches. If you rebalance, move back toward equal weight, not away from it.
+4. Default to holding. The gap to buy-and-hold stayed small in the weeks with no trades and mostly widened right after rotations. Trade only for a clear, lasting reason, not because of last week's price move.
+</lessons>

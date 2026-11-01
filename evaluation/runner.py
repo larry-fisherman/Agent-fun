@@ -94,15 +94,15 @@ async def risk_experiment(prefix: str = "reflexion_risk", max_weeks: int = 150):
                    lessons_path=f"experiments/runs/{prefix}/lessons_v3.txt",
                    max_weeks=max_weeks)
 
-async def synthetic_experiment(levels=('strong', 'medium', 'weak', 'no_pattern'), prefix: str = "synth", max_weeks: int = 150):
+async def synthetic_experiment(levels=('strong',), prefix: str = "synth", max_weeks: int = 150):
     for level in levels:
         train = f"data/synthetic/{level}_train.csv"
         test = f"data/synthetic/{level}_test.csv"
-        await run_experiment(name=f"{prefix}_{level}", train_path=train, test_path=test, risk=True, show_prices=True, max_weeks=max_weeks)
-        await run_test(f"{prefix}_{level}_nolessons", test, lessons_path=None, max_weeks=max_weeks)
+        await run_experiment(name=f"{prefix}_{level}", train_path=train, test_path=test, risk=False, show_prices=True, max_weeks=max_weeks)
+        # await run_test(f"{prefix}_{level}_nolessons", test, lessons_path=None, max_weeks=max_weeks)
 
 if __name__ == "__main__":
-    asyncio.run(synthetic_experiment(prefix="reflexion_v3", max_weeks=150))
+    asyncio.run(synthetic_experiment(prefix="reflexion_v4", max_weeks=150))
 
 
 

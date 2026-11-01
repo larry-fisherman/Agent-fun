@@ -1,0 +1,30 @@
+LESSON: Don't sell a stock right after a sharp one-week drop and move the money into the stock that just jumped. In this record, sharp one-week moves often reversed the next week. Wait for confirmation, or hold.
+EVIDENCE:
+Week 35 | Day 200 | SELL STOCK_C 250, BUY STOCK_A 111 | agent value $114,212 | buy & hold $116,772 | gap -2.2% | week: STOCK_A -1.1%, STOCK_B -1.7%, STOCK_C -13.2%
+Week 36 | Day 205 | SELL STOCK_C 215, BUY STOCK_B 101 | agent value $114,722 | buy & hold $118,722 | gap -3.4% | week: STOCK_A -1.3%, STOCK_B +2.3%, STOCK_C +6.8%
+Week 40 | Day 225 | SELL STOCK_B 420, BUY STOCK_C 865 | agent value $113,627 | buy & hold $119,132 | gap -4.6% | week: STOCK_A +5.7%, STOCK_B -11.0%, STOCK_C +9.6%
+Week 41 | Day 230 | SELL STOCK_C 100, BUY STOCK_B 44 | agent value $111,649 | buy & hold $121,627 | gap -8.2% | week: STOCK_A -0.3%, STOCK_B +7.2%, STOCK_C -3.2%
+WHY: The agent sold the stock that had just crashed, and that stock then rebounded the next week (C +6.8%, B +7.2%). It bought the stock that had just spiked, and that stock then fell back. The gap widened from -2.2% to -8.2% over these weeks. Buy-and-hold simply stayed in all three stocks through the swings.
+
+LESSON: Avoid trading every week. Constant rotation between stocks lost steadily to a static equal split, and the gap never recovered. Only change positions when there is a clear, sustained reason. Otherwise keep holdings near equal weight.
+EVIDENCE:
+Week 26 | Day 155 | (no trades) | agent value $112,532 | buy & hold $109,880 | gap +2.4% | week: STOCK_A +5.6%, STOCK_B +5.1%, STOCK_C -0.5%
+Week 61 | Day 330 | BUY STOCK_C 200 | agent value $108,128 | buy & hold $128,690 | gap -16.0% | week: STOCK_A +3.8%, STOCK_B +5.6%, STOCK_C +2.8%
+Week 66 | Day 355 | SELL STOCK_A 50, BUY STOCK_C 140 | agent value $106,980 | buy & hold $128,623 | gap -16.8% | week: STOCK_A +1.1%, STOCK_B -0.8%, STOCK_C +4.4%
+Week 73 | Day 390 | SELL STOCK_B 50, BUY STOCK_A 10 | agent value $112,582 | buy & hold $135,844 | gap -17.1% | week: STOCK_A -0.2%, STOCK_B +0.2%, STOCK_C -2.7%
+Week 75 | Day 400 | SELL STOCK_A 50, BUY STOCK_C 147 | agent value $109,687 | buy & hold $135,871 | gap -19.3% | week: STOCK_A -2.5%, STOCK_B +2.0%, STOCK_C +0.2%
+WHY: The agent traded almost every week in the second half, and the gap fell from about +3% to between -16% and -19%. Weeks with no trades kept pace or beat buy-and-hold. Active rotation kept missing the stocks that rose.
+
+LESSON: Don't sell positions and sit in cash or an underweight position after a down week. Staying under-invested let rebounds pass the agent by. Reinvest the proceeds, or keep exposure close to full.
+EVIDENCE:
+Week 42 | Day 235 | SELL STOCK_C 300 | agent value $106,090 | buy & hold $115,236 | gap -7.9% | week: STOCK_A -7.1%, STOCK_B -4.6%, STOCK_C -2.6%
+Week 43 | Day 240 | SELL STOCK_C 250, BUY STOCK_B 220 | agent value $107,891 | buy & hold $121,245 | gap -11.0% | week: STOCK_A +4.1%, STOCK_B +10.2%, STOCK_C -3.3%
+Week 60 | Day 325 | SELL STOCK_B 100, SELL STOCK_A 75 | agent value $104,833 | buy & hold $123,296 | gap -15.0% | week: STOCK_A -3.9%, STOCK_B -4.3%, STOCK_C +1.1%
+Week 61 | Day 330 | BUY STOCK_C 200 | agent value $108,128 | buy & hold $128,690 | gap -16.0% | week: STOCK_A +3.8%, STOCK_B +5.6%, STOCK_C -2.8%
+WHY: After the agent sold into weakness with no matching buy, the next week brought a broad rebound (B +10.2% in one case, all three stocks up in the other). The agent captured less of it, and the gap widened by about 1–3 points each time.
+
+<lessons>
+1. Don't sell a stock right after a sharp one-week drop and move the money into the stock that just jumped. Large one-week moves often reverse the next week, so wait for confirmation or hold.
+2. Avoid trading every week. Constant rotation between stocks lost steadily to a static equal-weight hold. Change positions only for a clear, sustained reason, and otherwise keep holdings near equal weight.
+3. Don't sell into a down week and then hold cash or an underweight position. Rebounds are often sharp and broad, and staying under-invested misses them, so reinvest the proceeds or keep exposure close to full.
+</lessons>

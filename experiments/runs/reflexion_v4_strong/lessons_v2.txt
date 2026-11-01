@@ -1,0 +1,4 @@
+1. After a stock falls sharply in one week, don't sell it to buy a stock that is up or that you expect to keep rising. Weekly moves often reverse, so wait at least a week or hold the position.
+2. Don't buy a stock right after it jumps in one week by selling a laggard. Large jumps often fade, and the swap locks in the loss.
+3. Don't repeatedly pile into the same stock by selling the others in successive weeks. Drifting far from equal weight made results depend on one stock that lagged for long stretches. If you rebalance, move back toward equal weight, not away from it.
+4. Default to holding. The gap to buy-and-hold stayed small in the weeks with no trades and mostly widened right after rotations. Trade only for a clear, lasting reason, not because of last week's price move.

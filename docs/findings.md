@@ -171,3 +171,12 @@ no_pattern: oracle -22.4%  buy-and-hold -26.7%  edge +4.3
     3. Finding "a >4% drop is followed by about +5% next week" means comparing about 285 stock-weeks across rows. LLMs reading a text table are good at spotting a few striking examples, like the ones it quoted, and bad at statistics. The data was there, but the reviewer had no way to measure it.
 
 ## Reflection reliably improves an agent by removing harmful default behaviour, but it didn't discover a strong, profitable pattern that was planted in the data. Return-based scores alone would have hidden that, and behaviour-level graders exposed it.
+
+## Reflexion v4 removes the risk prompt from the reviewer. This will tell us if the reviewer can find the pattern and proves that the problem was number 1 above because they are more prone to take risks.
+
+    Results: 
+
+## Reflexion v5 adds an analysis tool to measure the returns the average next-week return after different kinds of weekly moves, or a sandboxed Python tool. If the reviewer agent is able to then find the pattern, the problem is that there is too much data - problem 3 above. 
+
+    Results: 
+
