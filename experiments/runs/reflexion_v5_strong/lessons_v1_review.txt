@@ -1,0 +1,40 @@
+[TOOL CALL] mcp__analysis__signal_table {'signal': 'own_1w', 'horizon_weeks': 1}
+[TOOL CALL] mcp__analysis__signal_table {'signal': 'own_4w', 'horizon_weeks': 4}
+[TOOL CALL] mcp__analysis__signal_table {'signal': 'relative_1w', 'horizon_weeks': 1}
+[TOOL CALL] mcp__analysis__signal_table {'signal': 'market_1w', 'horizon_weeks': 1}
+I measured the signals first. Then I matched them to the table rows.
+
+**Measured effects**
+- After a stock's worst 1-week fall (the bottom fifth, a drop of 3% or more), its next-week average return was +3.05%, and 75% of those weeks were positive. The other four groups averaged between -0.9% and +0.3%.
+- The relative-to-market signal showed the same thing. The worst relative laggards returned +1.78% the next week, against roughly 0% for the rest.
+- Momentum from chasing winners did not help. The top fifth by 1-week gain averaged +0.30% next week.
+- Over 4 weeks, no group stood out.
+
+**What the agent did**
+- It was ahead by up to +9.3% through Week 29. In the quiet stretches (Weeks 4–5, 26–27, 29) it held and kept gaining.
+- From Week 33 on it traded almost every week, often selling the stock that had just fallen and buying the stock that had just risen. The gap went from +3.9% to about -28%.
+
+LESSON: Do not sell a holding just because it fell sharply in the last week. Big 1-week losers rebounded by about +3% on average the next week, with 75% of them positive. Selling right after the drop locks in the loss and misses the bounce.
+EVIDENCE:
+Week 35 | Day 200 | SELL STOCK_C 400, BUY STOCK_A 177 | agent value $108,248 | buy & hold $116,772 | gap -7.3% | week: STOCK_A -1.1%, STOCK_B -1.7%, STOCK_C -13.2%
+Week 36 | Day 205 | SELL STOCK_C 100, BUY STOCK_B 46 | agent value $109,477 | buy & hold $118,722 | gap -7.8% | week: STOCK_A -1.3%, STOCK_B +2.3%, STOCK_C +6.8%
+Week 40 | Day 225 | SELL STOCK_B 259, BUY STOCK_C 536 | agent value $109,684 | buy & hold $119,132 | gap -7.9% | week: STOCK_A +5.7%, STOCK_B -11.0%, STOCK_C +9.6%
+Week 41 | Day 230 | SELL STOCK_C 200, BUY STOCK_B 87 | agent value $108,351 | buy & hold $121,627 | gap -10.9% | week: STOCK_A -0.3%, STOCK_B +7.2%, STOCK_C -3.2%
+Week 92 | Day 485 | SELL STOCK_C 100 | agent value $115,531 | buy & hold $145,160 | gap -20.4% | week: STOCK_A +2.8%, STOCK_B -3.1%, STOCK_C -6.3%
+Week 93 | Day 490 | SELL STOCK_C 150, BUY STOCK_B 165 | agent value $117,872 | buy & hold $149,446 | gap -21.1% | week: STOCK_A -0.1%, STOCK_B +4.4%, STOCK_C +5.9%
+WHY: Each time the agent sold a stock after a big weekly drop, that stock rose the next week. Examples are C +6.8% after Week 35, B +7.2% after Week 40, and C +5.9% after Week 92. The gap kept widening.
+
+LESSON: Do not rotate between stocks every week. Make a trade only when you have a measured edge, and otherwise hold. Weekly selling of the recent loser to buy the recent winner earned nothing, since the top fifth of 1-week gainers averaged only +0.3% next week. Quiet no-trade weeks were the agent's best stretches.
+EVIDENCE:
+Week 4 | Day 45 | (no trades) | agent value $103,726 | buy & hold $99,070 | gap +4.7% | week: STOCK_A +0.1%, STOCK_B +2.4%, STOCK_C -5.7%
+Week 5 | Day 50 | (no trades) | agent value $106,293 | buy & hold $99,140 | gap +7.2% | week: STOCK_A +2.5%, STOCK_B -2.3%, STOCK_C -0.1%
+Week 26 | Day 155 | (no trades) | agent value $117,354 | buy & hold $109,880 | gap +6.8% | week: STOCK_A +5.6%, STOCK_B +5.1%, STOCK_C -0.5%
+Week 37 | Day 210 | SELL STOCK_C 349, BUY STOCK_A 163 | agent value $115,082 | buy & hold $123,977 | gap -7.2% | week: STOCK_A +6.7%, STOCK_B +3.5%, STOCK_C +2.0%
+Week 65 | Day 350 | SELL STOCK_C 250, SELL STOCK_A 100, BUY STOCK_B 174 | agent value $96,628 | buy & hold $127,669 | gap -24.3% | week: STOCK_A -4.5%, STOCK_B +3.7%, STOCK_C -7.0%
+Week 66 | Day 355 | SELL STOCK_C 242, BUY STOCK_B 82 | agent value $96,887 | buy & hold $128,623 | gap -24.7% | week: STOCK_A +1.1%, STOCK_B -0.8%, STOCK_C +4.4%
+WHY: The agent gained while holding in the early weeks. In the long trading phase it sold C again and again, including right before C's +4.4% week, and the gap fell from -7% to -25%. Its portfolio was nearly flat while buy-and-hold climbed.
+
+<lessons>
+1. Do not sell a holding just because it dropped sharply in the last week. The worst 1-week losers rebounded by about +3% on average the next week (75% positive), so wait for the bounce or add to the position instead.
+2. Avoid weekly rotation between stocks. Recent 1-week winners showed no edge (+0.3% next week), so selling the laggard to buy the recent winner just locks in losses. Trade only when there is a measured edge, and otherwise hold.
+</lessons>

@@ -1,0 +1,4 @@
+1. Keep the three holdings close to equal weight. Don't let one stock become much larger than the others, and don't add to a stock that is already the largest or has been falling. When weights drift, trade back toward equal weight.
+2. "Hold" is not a default for long stretches. At each decision, check whether the weights have drifted from equal. If they have, make a corrective rebalancing trade large enough to matter, and don't make only token trades.
+3. Don't sell a holding just because it dropped sharply in one week. In this data the worst 1-week losers rebounded about +3% the next week, with 75% positive. Treat the drop as a reason to hold, not to add to an already overweight position.
+4. Don't rotate into recent 1-week winners or out of laggards on short-term price moves alone. Recent winners showed only about +0.2% to +0.3% next week, which is no edge. Rebalance to equal weight, not to momentum.

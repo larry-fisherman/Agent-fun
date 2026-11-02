@@ -1,0 +1,46 @@
+[TOOL CALL] mcp__analysis__signal_table {'signal': 'own_1w', 'horizon_weeks': 1}
+[TOOL CALL] mcp__analysis__signal_table {'signal': 'own_4w', 'horizon_weeks': 4}
+[TOOL CALL] mcp__analysis__signal_table {'signal': 'relative_1w', 'horizon_weeks': 1}
+**Review of the existing lessons**
+
+- **Lesson 1 (don't sell sharp 1-week losers):** Keep it, with a narrower wording.
+  - The measured effect holds in this period. The worst-quintile 1-week losers (-13.2% to -3.0%) returned +3.05% over the next week, and 75% were positive. The other quintiles returned between -0.9% and +0.3%.
+  - The agent did not make the mistake the lesson warns about. The problem was that it applied "add to the position" to its one concentrated holding, which kept falling.
+- **Lesson 2 (avoid weekly rotation):** Revise it.
+  - The signal table supports the first half. Recent 1-week winners returned only +0.3% next week, and relative-strength winners returned +0.19%.
+  - The agent took the rule as "never trade". It made 0 trades in about 85 of 95 weeks.
+  - It stayed concentrated in the worst-performing stock while buy-and-hold stayed equal-weighted. The gap grew from 0% to about -30% to -40%.
+
+**Evidence for the new lessons**
+
+LESSON: Stay near equal weight across all three stocks. Don't hold one stock at a much larger weight than the others, and don't add to a stock that is already the largest holding or has been falling for several weeks. Rebalance back toward equal weight when drift appears.
+EVIDENCE:
+Week 1 | Day 30 | BUY STOCK_C 1000 | agent value $100,000 | buy & hold $100,000 | gap +0.0% | week: STOCK_A +3.0%, STOCK_B -1.8%, STOCK_C -3.0%
+Week 2 | Day 35 | (no trades) | agent value $97,654 | buy & hold $100,303 | gap -2.6% | week: STOCK_A +1.2%, STOCK_B +2.2%, STOCK_C -2.5%
+Week 4 | Day 45 | BUY STOCK_C 53 | agent value $90,615 | buy & hold $99,070 | gap -8.5% | week: STOCK_A +0.1%, STOCK_B +2.4%, STOCK_C -5.7%
+Week 14 | Day 95 | (no trades) | agent value $79,980 | buy & hold $96,304 | gap -16.9% | week: STOCK_A +5.7%, STOCK_B +6.7%, STOCK_C -9.0%
+Week 35 | Day 200 | (no trades) | agent value $80,812 | buy & hold $116,772 | gap -30.8% | week: STOCK_A -1.1%, STOCK_B -1.7%, STOCK_C -13.2%
+WHY: The agent's weekly moves track a single stock, not an average of three. In week 2 it fell -2.4% while that stock fell -2.5%. In week 14 it lost about 5% while the other two stocks gained more than 5%. In week 35 it lost about 9% while buy-and-hold lost about 4%. The gap widened by roughly 8 points in the first four weeks, after the agent bought more of a stock that was falling. It then kept widening.
+
+LESSON: Don't use "hold" as a default for months at a time. Check at every decision whether portfolio weights have drifted from equal. If they have, make a corrective trade toward equal weight, because that is a measured-neutral rotation and not a chase of recent winners.
+EVIDENCE:
+Week 10 | Day 75 | (no trades) | agent value $87,758 | buy & hold $97,553 | gap -10.0% | week: STOCK_A -1.0%, STOCK_B -2.0%, STOCK_C -2.3%
+Week 22 | Day 135 | (no trades) | agent value $78,114 | buy & hold $100,118 | gap -22.0% | week: STOCK_A +1.5%, STOCK_B +2.2%, STOCK_C -6.9%
+Week 29 | Day 170 | (no trades) | agent value $81,121 | buy & hold $113,660 | gap -28.6% | week: STOCK_A +2.3%, STOCK_B +1.5%, STOCK_C -7.5%
+Week 49 | Day 270 | (no trades) | agent value $75,293 | buy & hold $116,525 | gap -35.4% | week: STOCK_A +0.6%, STOCK_B -4.4%, STOCK_C -3.5%
+WHY: From about week 10 onward the agent made almost no trades, while the gap widened from -10% to -35% or worse. Several large single-stock drops (-6.9%, -7.5%) hit it much harder than buy-and-hold. Its few later trades were tiny, such as "SELL STOCK_C 3, BUY STOCK_B 1". These did not restore balance.
+
+LESSON: Keep the rule of not selling a stock only because it fell sharply in one week. Treat a one-week drop as a reason to hold, not as a reason to add to a stock that is already overweight. Measured: the worst 1-week losers returned +3.05% next week (75% positive). Other buckets averaged -0.9% to +0.3%, and 4-week momentum showed no clear edge.
+EVIDENCE:
+Week 29 | Day 170 | (no trades) | agent value $81,121 | buy & hold $113,660 | gap -28.6% | week: STOCK_A +2.3%, STOCK_B +1.5%, STOCK_C -7.5%
+Week 30 | Day 175 | (no trades) | agent value $87,730 | buy & hold $114,785 | gap -23.6% | week: STOCK_A -6.4%, STOCK_B +2.1%, STOCK_C +13.5%
+Week 35 | Day 200 | (no trades) | agent value $80,812 | buy & hold $116,772 | gap -30.8% | week: STOCK_A -1.1%, STOCK_B -1.7%, STOCK_C -13.2%
+Week 36 | Day 205 | (no trades) | agent value $84,491 | buy & hold $118,722 | gap -28.8% | week: STOCK_A -1.3%, STOCK_B +2.3%, STOCK_C +6.8%
+WHY: The sharp one-week drops of -7.5% and -13.2% were followed by rebounds of +13.5% and +6.8%. Selling after those drops would have locked in the loss. This part of the old lesson helped. The agent's damage came from concentration, not from forced selling.
+
+<lessons>
+1. Keep the three holdings close to equal weight. Don't let one stock become much larger than the others, and don't add to a stock that is already the largest or has been falling. When weights drift, trade back toward equal weight.
+2. "Hold" is not a default for long stretches. At each decision, check whether the weights have drifted from equal. If they have, make a corrective rebalancing trade large enough to matter, and don't make only token trades.
+3. Don't sell a holding just because it dropped sharply in one week. In this data the worst 1-week losers rebounded about +3% the next week, with 75% positive. Treat the drop as a reason to hold, not to add to an already overweight position.
+4. Don't rotate into recent 1-week winners or out of laggards on short-term price moves alone. Recent winners showed only about +0.2% to +0.3% next week, which is no edge. Rebalance to equal weight, not to momentum.
+</lessons>
