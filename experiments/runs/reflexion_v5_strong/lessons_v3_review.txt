@@ -1,0 +1,47 @@
+[TOOL CALL] mcp__analysis__signal_table {'signal': 'own_1w', 'horizon_weeks': 1}
+[TOOL CALL] mcp__analysis__signal_table {'signal': 'own_4w', 'horizon_weeks': 4}
+[TOOL CALL] mcp__analysis__signal_table {'signal': 'relative_1w', 'horizon_weeks': 1}
+[TOOL CALL] mcp__analysis__signal_table {'signal': 'market_1w', 'horizon_weeks': 1}
+Lessons from this run. The agent finished +43.0% against +50.6% for buy-and-hold, a shortfall of 7.6 points. The gap widened slowly over the whole run rather than from one event.
+
+**What the signal tables show (all weeks, all stocks):**
+- **1-week return, next 1 week:**
+  - The worst fifth of stock-weeks (drops of 3% to 13%) averaged +3.05% the next week, with 75% positive.
+  - The other four fifths averaged between −0.9% and +0.3%.
+- **Relative 1-week return, next 1 week:** the biggest laggards versus the market averaged +1.78% next week (67% positive). The other groups were near zero.
+- **4-week return, next 4 weeks:** there is no clear pattern. Every group averaged +0.7% to +2.4%.
+
+**Review of the old lessons:**
+- **Lesson 1 (stay near equal weight, don't add to a falling stock)** was only partly followed and partly wrong. The agent kept loading up on the most volatile stock, STOCK_C, and that concentration cost it when STOCK_C fell again. But the rule not to add to a falling stock is contradicted by the data. Buying big one-week drops was usually rewarded by a rebound.
+- **Lesson 2 (rebalance with large trades)** led to near-constant large rotations. Almost every week had trades, and the gap kept widening anyway. I'm revising it to trade only on material drift.
+- **Lesson 3 (don't sell after a sharp drop)** is supported by the tables (+3.05% rebound, 75% positive). I'm keeping it, but it should not say "don't add".
+- **Lesson 4 (don't chase winners)** is supported. Top-bucket winners averaged only +0.3% next week. I'm folding it into the lessons below.
+
+LESSON: Don't let any one stock grow past about 40% of the portfolio. Don't keep adding to the same volatile stock week after week, even after drops. Each time the agent stacked more STOCK_C, a further drop widened the gap.
+EVIDENCE:
+Week 34 | Day 195 | SELL STOCK_B 5, BUY STOCK_C 10 | agent value $118,809 | buy & hold $121,451 | gap -2.2% | week: STOCK_A +1.2%, STOCK_B +1.7%, STOCK_C -3.5%
+Week 35 | Day 200 | SELL STOCK_A 25, BUY STOCK_C 56 | agent value $112,532 | buy & hold $116,772 | gap -3.6% | week: STOCK_A -1.1%, STOCK_B -1.7%, STOCK_C -13.2%
+Week 67 | Day 360 | (no trades) | agent value $123,049 | buy & hold $131,320 | gap -6.3% | week: STOCK_A +1.5%, STOCK_B +3.4%, STOCK_C +0.1%
+Week 68 | Day 365 | (no trades) | agent value $121,598 | buy & hold $131,455 | gap -7.5% | week: STOCK_A +3.1%, STOCK_B -0.6%, STOCK_C -5.9%
+WHY: The gap widened 1.4 points when the heavily weighted STOCK_C fell 13.2% and 1.2 points when it fell 5.9%. Buy-and-hold was less exposed to those drops.
+
+LESSON: Don't sell a stock after a sharp one-week drop of 3% or more. Those stocks averaged +3.05% the next week, with 75% positive. Buying a small amount of such a stock to restore equal weight is fine and tended to help.
+EVIDENCE:
+Week 29 | Day 170 | SELL STOCK_A 10, SELL STOCK_B 19, BUY STOCK_C 60 | agent value $109,693 | buy & hold $113,660 | gap -3.5% | week: STOCK_A +2.3%, STOCK_B +1.5%, STOCK_C -7.5%
+Week 30 | Day 175 | SELL STOCK_C 52, BUY STOCK_A 30 | agent value $113,019 | buy & hold $114,785 | gap -1.5% | week: STOCK_A -6.4%, STOCK_B +2.1%, STOCK_C +13.5%
+Week 39 | Day 220 | SELL STOCK_B 8, BUY STOCK_C 20 | agent value $114,615 | buy & hold $120,150 | gap -4.6% | week: STOCK_A -5.0%, STOCK_B -2.0%, STOCK_C -8.0%
+Week 40 | Day 225 | SELL STOCK_C 40, SELL STOCK_A 10, BUY STOCK_B 31 | agent value $116,290 | buy & hold $119,132 | gap -2.4% | week: STOCK_A +5.7%, STOCK_B -11.0%, STOCK_C +9.6%
+WHY: In both cases the agent held or bought the stock that had just dropped. It then rebounded (+13.5%, +9.6%) and the gap narrowed by 2.0 and 2.2 points. The agent also lost ground when it sold winners after a rise and then missed the continuation (see the 4-week result above). Neither a rise nor a fall predicts much over several weeks.
+
+LESSON: Don't rotate every week. Trade only when a weight is more than about 5 points from one-third, and don't buy or sell based on a recent winner or laggard. The agent traded in most weeks, and the gap drifted from about 0 to −7%. The only sizeable catch-ups came from holding a rebounding stock.
+EVIDENCE:
+Week 64 | Day 345 | SELL STOCK_A 10, BUY STOCK_B 6, BUY STOCK_C 11 | agent value $122,341 | buy & hold $129,559 | gap -5.6% | week: STOCK_A +9.4%, STOCK_B -0.3%, STOCK_C -0.4%
+Week 65 | Day 350 | SELL STOCK_B 16, BUY STOCK_C 49, BUY STOCK_A 1 | agent value $119,191 | buy & hold $127,669 | gap -6.6% | week: STOCK_A -4.5%, STOCK_B +3.7%, STOCK_C -7.0%
+Week 70 | Day 375 | SELL STOCK_A 15, BUY STOCK_B 15 | agent value $127,229 | buy & hold $136,956 | gap -7.1% | week: STOCK_A +5.5%, STOCK_B +1.8%, STOCK_C -0.3%
+WHY: The agent sold a stock after a +9.4% week and again after a +5.5% week, and traded in most weeks. The week after the first sale, the gap fell another 1.0 point to −6.6%. Frequent rotation did not help, and buy-and-hold stayed ahead throughout.
+
+<lessons>
+1. Keep every holding at no more than about 40% of the portfolio. Don't repeatedly add to the same volatile stock, because one further drop then costs a lot.
+2. Don't sell a stock because it fell 3% or more in one week. Such stocks rebounded about +3.05% the next week, with 75% positive. Buying a modest amount to restore equal weight is fine.
+3. Don't trade every week. Hold unless a weight is more than about 5 points from one-third, and then make a modest trade back toward equal weight. Don't trade on recent winners or laggards, because 1-week and 4-week momentum showed no reliable edge.
+</lessons>
