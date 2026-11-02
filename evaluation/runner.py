@@ -10,7 +10,7 @@ TRAIN = "data/prices_train.csv"
 TEST = "data/prices.csv"
 
 
-async def run_experiment(name: str, rounds: int = 3, test_runs: int = 3, max_weeks: int = 150, risk: bool=False, show_prices: bool = False, train_path: str = TRAIN, test_path: str = TEST):
+async def run_experiment(name: str, rounds: int = 3, test_runs: int = 3, max_weeks: int = 150, risk: bool=False, show_prices: bool = False, train_path: str = TRAIN, test_path: str = TEST, analysis: bool = False):
     lessons = None
     lessons_path = None
     exp_dir = Path("experiments/runs") / name      
@@ -24,7 +24,7 @@ async def run_experiment(name: str, rounds: int = 3, test_runs: int = 3, max_wee
         if lessons_path.exists():
             lessons = load_lessons(lessons_path)
         else:
-            lessons = await reflect(result["log_path"], train_path, str(lessons_path), previous_lessons=lessons, risk=risk, show_prices=show_prices)
+            lessons = await reflect(result["log_path"], train_path, str(lessons_path), previous_lessons=lessons, risk=risk, show_prices=show_prices, analysis=analysis)
     test_results = []
     for i in range(1, test_runs +1):
         result = await run_or_resume(exp_dir / f"test_{i}.result.json",
@@ -98,11 +98,11 @@ async def synthetic_experiment(levels=('strong',), prefix: str = "synth", max_we
     for level in levels:
         train = f"data/synthetic/{level}_train.csv"
         test = f"data/synthetic/{level}_test.csv"
-        await run_experiment(name=f"{prefix}_{level}", train_path=train, test_path=test, risk=False, show_prices=True, max_weeks=max_weeks)
+        await run_experiment(name=f"{prefix}_{level}", train_path=train, test_path=test, risk=False, show_prices=True, max_weeks=max_weeks, analysis=True)
         # await run_test(f"{prefix}_{level}_nolessons", test, lessons_path=None, max_weeks=max_weeks)
 
 if __name__ == "__main__":
-    asyncio.run(synthetic_experiment(prefix="reflexion_v4", max_weeks=150))
+    asyncio.run(synthetic_experiment(prefix="reflexion_v5", max_weeks=150))
 
 
 

@@ -174,7 +174,7 @@ no_pattern: oracle -22.4%  buy-and-hold -26.7%  edge +4.3
 
 ## Reflexion v4 removes the risk prompt from the reviewer. This will tell us if the reviewer can find the pattern and proves that the problem was number 1 above because they are more prone to take risks.
 
-    Results: 
+    Results: Problem one above was not supported. Without the added risk goal prompt, the reviewer agent still did not find the pattern. It noticed the same half-pattern again: "Large one-week moves often reverse the next week". But it turned that into "don't sell after a drop", never "buy after a drop". Both reviewers saw the reversal and both drew only the defensive conclusion. This leaves options 2 and 3 above as the viable options.
 
 ## Reflexion v5 adds an analysis tool to measure the returns the average next-week return after different kinds of weekly moves, or a sandboxed Python tool. If the reviewer agent is able to then find the pattern, the problem is that there is too much data - problem 3 above. 
 

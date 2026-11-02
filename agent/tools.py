@@ -2,6 +2,8 @@ import json
 from typing import Any
 from claude_agent_sdk import tool, create_sdk_mcp_server
 from environment.market import Market
+import pandas as pd
+from agent.analysis_tools import signal_table
 
 
 def reply(text: str, error: bool = False) -> dict[str, Any]:
@@ -44,4 +46,22 @@ def make_market_server(market: Market):
         version="1.0.0", 
         tools=[get_portfolio, buy, get_price_history, sell]
     )
+
+def make_analysis_server(prices: pd.DataFrame):
+    @tool("signal_table",
+          "Splits all stock-weeks in this period into 5 equal groups by a signal measured at a decision, "
+          "and shows the average return over the following weeks for each group. "
+          "Signals: own_1w, own_4w, market_1w, relative_1w. horizon_weeks: 1 to 4.",
+          {"signal": str, "horizon_weeks": int})
+    async def signal_table_tool(args):
+        try:
+            table = signal_table(prices, args["signal"], args["horizon_weeks"])
+        except ValueError as e:
+            return reply(str(e), error=True)
+        return reply(table.round(4).to_string())
+
+    return create_sdk_mcp_server(name="analysis", version="1.0.0", tools=[signal_table_tool])
+
+
+
 
