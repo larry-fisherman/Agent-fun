@@ -178,5 +178,9 @@ no_pattern: oracle -22.4%  buy-and-hold -26.7%  edge +4.3
 
 ## Reflexion v5 adds an analysis tool to measure the returns the average next-week return after different kinds of weekly moves, or a sandboxed Python tool. If the reviewer agent is able to then find the pattern, the problem is that there is too much data - problem 3 above. 
 
-    Results: 
+    Results: the reviewer found the pattern, but did not profit off of it... it said: "The worst 1-week losers rebounded by about +3% on average the next week (75% positive), so wait for the bounce or add to the position instead."
+
+    The reason it still wasn't profitable is because it looks like the trader did not execute on the plan. the trader seems to have messed things up.
+
+## Finding a pattern and acting on it are two seperate problems. We found the pattern, but were not able to accurately execute on it.
 
